@@ -5,31 +5,31 @@ namespace BingoScorer
 {
     public class BingoBoard
     {
-        bool Your_Work_Setup { get; set; }
-        bool Frozen_Anything { get; set; }
-        bool You_Doing_Exactly_What_A_Sign_Says { get; set; }
-        bool A_Candle { get; set; }
-        bool Something_With_Microsoft_Logo { get; set; }
-        bool Your_Favorite_Mug { get; set; }
-        bool Perform_A_Tiktok_Dance { get; set; }
-        bool Something_You_Cooked_Baked { get; set; }
-        bool Video_Telling_Us_Your_Favorite_Joke { get; set; }
-        bool Sock_With_A_Hole_In_It { get; set; }
-        bool Baby_Childhood_Photo { get; set; }
-        bool Something_You_Cant_Live_Without { get; set; }
-        bool A_Coin_From_The_Year_2021 { get; set; }
-        bool The_View_From_Your_Window { get; set; }
-        bool A_Very_Very_Large_Tree { get; set; }
-        bool Something_That_Came_Out_The_Year_You_Were_Born { get; set; }
-        bool Piece_Of_Workout_Equipment { get; set; }
-        bool Imitate_Your_Favorite_Emoji { get; set; }
-        bool Decoration_With_A_Quote_On_It { get; set; }
-        bool Something_Winter_Holiday_Related { get; set; }
-        bool Something_That_Begins_With_The_Letter_Z { get; set; }
-        bool A_Book_With_At_Least_300_Pages { get; set; }
-        bool A_Decorative_Pillow { get; set; }
-        bool A_Cloud_That_Looks_Like_An_Animal { get; set; }
-        bool Free_Space { get; set; } = true;
+        internal bool Your_Work_Setup { get; set; }
+        internal bool Frozen_Anything { get; set; }
+        internal bool You_Doing_Exactly_What_A_Sign_Says { get; set; }
+        internal bool A_Candle { get; set; }
+        internal bool Something_With_Microsoft_Logo { get; set; }
+        internal bool Your_Favorite_Mug { get; set; }
+        internal bool Perform_A_Tiktok_Dance { get; set; }
+        internal bool Something_You_Cooked_Baked { get; set; }
+        internal bool Video_Telling_Us_Your_Favorite_Joke { get; set; }
+        internal bool Sock_With_A_Hole_In_It { get; set; }
+        internal bool Baby_Childhood_Photo { get; set; }
+        internal bool Something_You_Cant_Live_Without { get; set; }
+        internal bool A_Coin_From_The_Year_2021 { get; set; }
+        internal bool The_View_From_Your_Window { get; set; }
+        internal bool A_Very_Very_Large_Tree { get; set; }
+        internal bool Something_That_Came_Out_The_Year_You_Were_Born { get; set; }
+        internal bool Piece_Of_Workout_Equipment { get; set; }
+        internal bool Imitate_Your_Favorite_Emoji { get; set; }
+        internal bool Decoration_With_A_Quote_On_It { get; set; }
+        internal bool Something_Winter_Holiday_Related { get; set; }
+        internal bool Something_That_Begins_With_The_Letter_Z { get; set; }
+        internal bool A_Book_With_At_Least_300_Pages { get; set; }
+        internal bool A_Decorative_Pillow { get; set; }
+        internal bool A_Cloud_That_Looks_Like_An_Animal { get; set; }
+        internal bool Free_Space { get; set; } = true;
 
         public string Name { get; set; }
         public float Score { get; set; }
@@ -40,7 +40,7 @@ namespace BingoScorer
             Name = name;
             foreach (var item in items)
             {
-                IncludeItem(item);
+                this.IncludeItem(item);
             }
         }
 
@@ -188,12 +188,12 @@ namespace BingoScorer
 
         void CleanUpExtraSpaces()
         {
-            // Add a point for the Free Space if not yet Claimed
-            if (Free_Space)
-            {
-                Score += 10;
-                Log.AppendLine("Free Space +10 Points");
-            }
+            //// Add a point for the Free Space if not yet Claimed
+            //if (Free_Space)
+            //{
+            //    Score += 10;
+            //    Log.AppendLine("Free Space +10 Points");
+            //}
             if (Your_Work_Setup)
             {
                 Score += 10;
@@ -532,105 +532,108 @@ namespace BingoScorer
             Free_Space = false;
             FalsifySnowFlake();
         }
+    }
 
-        void IncludeItem(e item)
+    public static class BingoBoardExtensions
+    {
+        public static void IncludeItem(this BingoBoard board, e item)
         {
             switch (item)
             {
                 case e.Your_Work_Setup:
-                    Your_Work_Setup = true;
+                    board.Your_Work_Setup = true;
                     break;
 
                 case e.Frozen_Anything:
-                    Frozen_Anything = true;
+                    board.Frozen_Anything = true;
                     break;
 
                 case e.You_Doing_Exactly_What_A_Sign_Says:
-                    You_Doing_Exactly_What_A_Sign_Says = true;
+                    board.You_Doing_Exactly_What_A_Sign_Says = true;
                     break;
 
                 case e.A_Candle:
-                    A_Candle = true;
+                    board.A_Candle = true;
                     break;
 
                 case e.Something_With_Microsoft_Logo:
-                    Something_With_Microsoft_Logo = true;
+                    board.Something_With_Microsoft_Logo = true;
                     break;
 
                 case e.Your_Favorite_Mug:
-                    Your_Favorite_Mug = true;
+                    board.Your_Favorite_Mug = true;
                     break;
 
                 case e.Perform_A_Tiktok_Dance:
-                    Perform_A_Tiktok_Dance = true;
+                    board.Perform_A_Tiktok_Dance = true;
                     break;
 
                 case e.Something_You_Cooked_Baked:
-                    Something_You_Cooked_Baked = true;
+                    board.Something_You_Cooked_Baked = true;
                     break;
 
                 case e.Video_Telling_Us_Your_Favorite_Joke:
-                    Video_Telling_Us_Your_Favorite_Joke = true;
+                    board.Video_Telling_Us_Your_Favorite_Joke = true;
                     break;
 
                 case e.Sock_With_A_Hole_In_It:
-                    Sock_With_A_Hole_In_It = true;
+                    board.Sock_With_A_Hole_In_It = true;
                     break;
 
                 case e.Baby_Childhood_Photo:
-                    Baby_Childhood_Photo = true;
+                    board.Baby_Childhood_Photo = true;
                     break;
 
                 case e.Something_You_Cant_Live_Without:
-                    Something_You_Cant_Live_Without = true;
+                    board.Something_You_Cant_Live_Without = true;
                     break;
 
                 case e.A_Coin_From_The_Year_2021:
-                    A_Coin_From_The_Year_2021 = true;
+                    board.A_Coin_From_The_Year_2021 = true;
                     break;
 
                 case e.The_View_From_Your_Window:
-                    The_View_From_Your_Window = true;
+                    board.The_View_From_Your_Window = true;
                     break;
 
                 case e.A_Very_Very_Large_Tree:
-                    A_Very_Very_Large_Tree = true;
+                    board.A_Very_Very_Large_Tree = true;
                     break;
 
                 case e.Something_That_Came_Out_The_Year_You_Were_Born:
-                    Something_That_Came_Out_The_Year_You_Were_Born = true;
+                    board.Something_That_Came_Out_The_Year_You_Were_Born = true;
                     break;
 
                 case e.Piece_Of_Workout_Equipment:
-                    Piece_Of_Workout_Equipment = true;
+                    board.Piece_Of_Workout_Equipment = true;
                     break;
 
                 case e.Imitate_Your_Favorite_Emoji:
-                    Imitate_Your_Favorite_Emoji = true;
+                    board.Imitate_Your_Favorite_Emoji = true;
                     break;
 
                 case e.Decoration_With_A_Quote_On_It:
-                    Decoration_With_A_Quote_On_It = true;
+                    board.Decoration_With_A_Quote_On_It = true;
                     break;
 
                 case e.Something_Winter_Holiday_Related:
-                    Something_Winter_Holiday_Related = true;
+                    board.Something_Winter_Holiday_Related = true;
                     break;
 
                 case e.Something_That_Begins_With_The_Letter_Z:
-                    Something_That_Begins_With_The_Letter_Z = true;
+                    board.Something_That_Begins_With_The_Letter_Z = true;
                     break;
 
                 case e.A_Book_With_At_Least_300_Pages:
-                    A_Book_With_At_Least_300_Pages = true;
+                    board.A_Book_With_At_Least_300_Pages = true;
                     break;
 
                 case e.A_Decorative_Pillow:
-                    A_Decorative_Pillow = true;
+                    board.A_Decorative_Pillow = true;
                     break;
 
                 case e.A_Cloud_That_Looks_Like_An_Animal:
-                    A_Cloud_That_Looks_Like_An_Animal = true;
+                    board.A_Cloud_That_Looks_Like_An_Animal = true;
                     break;
             }
         }

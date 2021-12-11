@@ -9,7 +9,7 @@ namespace BingoScorer
     {
         SortedList<float, (string name, string log)> Entries = new SortedList<float, (string name, string log)> (new DecendingComparer<float>());
 
-        public Awards (params BingoBoard[] boards)
+        public Awards (List<BingoBoard> boards)
         {
             foreach (var board in boards)
             {
