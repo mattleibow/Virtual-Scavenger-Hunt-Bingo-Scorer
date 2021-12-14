@@ -71,7 +71,7 @@ namespace BingoScorer
         char Mark (bool val)
         {
             if (val)
-                return 'X';
+                return 'x';
             return '_';
         }
 
@@ -219,12 +219,6 @@ namespace BingoScorer
 
         void CleanUpExtraSpaces()
         {
-            //// Add a point for the Free Space if not yet Claimed
-            //if (Free_Space)
-            //{
-            //    Score += 10;
-            //    Log.AppendLine("Free Space +10 Points");
-            //}
             if (Your_Work_Setup)
             {
                 Score += 10;

@@ -7,6 +7,7 @@ namespace BingoScorer
 {
     public class Awards
     {
+        // My apologies for this ugly SortedList!
         SortedList<float, (string name, string log, string drawing)> Entries = new SortedList<float, (string name, string log, string drawing)> (new DecendingComparer<float>());
 
         public Awards (List<BingoBoard> boards)
@@ -51,13 +52,14 @@ namespace BingoScorer
                     lastScore = score;
                     tieCounter = 0;
                 }
-                sb.AppendLine($"{place}. {entry.Value.name}: {score} points\n{entry.Value.log}");
+                sb.AppendLine($"*{place}. {entry.Value.name}: {score} points*\n{entry.Value.log}");
 
                 sb.AppendLine(entry.Value.drawing);
             }
             return sb.ToString ();
         }
 
+        // Gets the places (1st and 2nd) and then creates the percentage groups
         public string GetPlaces()
         {
             StringBuilder sb = new StringBuilder();
@@ -115,14 +117,13 @@ namespace BingoScorer
                     sb.AppendLine($"{group}. {entry.Value.name}: {(int)entry.Key} points Percentage: {percent}\n");
                     place++;
                 }
-                
             }
 
             return sb.ToString();
         }
 
-        // mark all the places based on their position - does not account for ties
-        string GetNumberPlaces ()
+        // mark all the places based on their position
+        public string GetNumberPlaces ()
         {
             StringBuilder sb = new StringBuilder();
             var place = 1;
@@ -133,10 +134,10 @@ namespace BingoScorer
             {
                 if ((int)entry.Key == lastScore)
                 {
-                    sb.AppendLine($"{previousPlace}. {entry.Value.name}: {(int)entry.Key} points\n");
+                    sb.AppendLine($"{previousPlace}. {entry.Value.name}: {(int)entry.Key} points");
                 } else
                 {
-                    sb.AppendLine($"{place}. {entry.Value.name}: {(int)entry.Key} points\n");
+                    sb.AppendLine($"{place}. {entry.Value.name}: {(int)entry.Key} points");
                     previousPlace = place;
                 }
                 

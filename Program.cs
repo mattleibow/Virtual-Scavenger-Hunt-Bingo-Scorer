@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace BingoScorer
 {
@@ -10,11 +12,23 @@ namespace BingoScorer
 
         static void Main(string[] args)
         {
-            CreateBingoBoards();
-            var awards = new Awards (Boards);
+            // So we can call async methods from main
+            MainAsync().GetAwaiter().GetResult();
+        }
 
-            Console.Write (awards.GetPlaces());
-            Console.Write (awards.GetDetailedReport());
+        static async Task MainAsync()
+        {
+            CreateBingoBoards();
+            var awards = new Awards(Boards);
+
+            //await WriteToFile(awards.GetPlaces(), "../../../Places.txt");
+            await WriteToFile(awards.GetNumberPlaces(), "../../../Places.txt");
+            await WriteToFile(awards.GetDetailedReport(), "../../../DetailedReport.txt");
+        }
+
+        static async Task WriteToFile(string content, string outputPath)
+        {
+            await File.WriteAllTextAsync(outputPath, content);
         }
 
         static void CreateBingoBoards()
@@ -62,7 +76,6 @@ namespace BingoScorer
             TallyItems(e.Sock_With_A_Hole_In_It, new string[]{
                 "Gerald Versluis", "TJ Lambert", "Samantha Houts", "Shane Neuville", "Steve Hawley",
                 "Rui Marinho", "Alex Soto",
-
             });
 
             TallyItems(e.Baby_Childhood_Photo, new string[]{
