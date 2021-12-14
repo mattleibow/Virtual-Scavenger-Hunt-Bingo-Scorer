@@ -1,8 +1,11 @@
 ﻿using System;
 using System.Text;
+using static BingoScorer.MarkBoard;
 
 namespace BingoScorer
 {
+    // This class is responsible for assigning the points to a bingo board
+    // as well as creating a drawing and log for the points that were assigned
     public class BingoBoard
     {
         internal bool Your_Work_Setup { get; set; }
