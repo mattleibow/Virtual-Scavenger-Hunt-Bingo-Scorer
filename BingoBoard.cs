@@ -34,6 +34,7 @@ namespace BingoScorer
         public string Name { get; set; }
         public float Score { get; set; }
         public StringBuilder Log { get; set; } = new StringBuilder("Point Breakdown:\n");
+        public string Drawing { get; set; }
 
         public BingoBoard(string name, params e[] items)
         {
@@ -42,6 +43,36 @@ namespace BingoScorer
             {
                 this.IncludeItem(item);
             }
+        }
+
+        public void DrawBoard ()
+        {
+            StringBuilder sb = new StringBuilder ("-----------\n");
+            // Row 1
+            sb.Append($"|{Mark(Your_Work_Setup)}|{Mark(Frozen_Anything)}|{Mark(You_Doing_Exactly_What_A_Sign_Says)}|{Mark(A_Candle)}|{Mark(Something_With_Microsoft_Logo)}|\n");
+
+            // Row 2
+            sb.Append($"|{Mark(Your_Favorite_Mug)}|{Mark(Perform_A_Tiktok_Dance)}|{Mark(Something_You_Cooked_Baked)}|{Mark(Video_Telling_Us_Your_Favorite_Joke)}|{Mark(Sock_With_A_Hole_In_It)}|\n");
+
+            // Row 3
+            sb.Append($"|{Mark(Baby_Childhood_Photo)}|{Mark(Something_You_Cant_Live_Without)}|{Mark(Free_Space)}|{Mark(A_Coin_From_The_Year_2021)}|{Mark(The_View_From_Your_Window)}|\n");
+
+            // Row 4
+            sb.Append($"|{Mark(A_Very_Very_Large_Tree)}|{Mark(Something_That_Came_Out_The_Year_You_Were_Born)}|{Mark(Piece_Of_Workout_Equipment)}|{Mark(Imitate_Your_Favorite_Emoji)}|{Mark(Decoration_With_A_Quote_On_It)}|\n");
+
+            // Row 5
+            sb.Append($"|{Mark(Something_Winter_Holiday_Related)}|{Mark(Something_That_Begins_With_The_Letter_Z)}|{Mark(A_Book_With_At_Least_300_Pages)}|{Mark(A_Decorative_Pillow)}|{Mark(A_Cloud_That_Looks_Like_An_Animal)}|\n");
+
+            sb.Append("-----------\n");
+
+            Drawing = sb.ToString();
+        }
+
+        char Mark (bool val)
+        {
+            if (val)
+                return 'X';
+            return '_';
         }
 
         public void CalculateScore()

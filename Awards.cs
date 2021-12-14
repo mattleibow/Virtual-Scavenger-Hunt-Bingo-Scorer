@@ -7,24 +7,25 @@ namespace BingoScorer
 {
     public class Awards
     {
-        SortedList<float, (string name, string log)> Entries = new SortedList<float, (string name, string log)> (new DecendingComparer<float>());
+        SortedList<float, (string name, string log, string drawing)> Entries = new SortedList<float, (string name, string log, string drawing)> (new DecendingComparer<float>());
 
         public Awards (List<BingoBoard> boards)
         {
             foreach (var board in boards)
             {
+                board.DrawBoard();
                 board.CalculateScore ();
 
-                var score = board.Score;
+                float score = (float) board.Score;
 
                 // Small hack to have multiples of the same score inside the sortedList.
                 // Add a small decimal value and treat the floats as ints later!
                 while (Entries.ContainsKey(score))
                 {
-                    score += 0.001f;
+                    score += 0.1f;
                 }
                     
-                Entries.Add (score, new (board.Name, board.Log.ToString ()));
+                Entries.Add (score, new (board.Name, board.Log.ToString (), board.Drawing));
             }
         }
 
@@ -32,12 +33,28 @@ namespace BingoScorer
         {
             StringBuilder sb = new StringBuilder ();
             var place = 1;
+            int previousPlace = 0;
+            int lastScore = -1;
+            int tieCounter = 0;
             foreach (var entry in Entries)
             {
-                sb.AppendLine($"{place}. {entry.Value.name}: {(int)entry.Key} points\n{entry.Value.log}\n\n");
-                place++;
-            }
+                var score = (int)entry.Key;
+                if (lastScore == score)
+                {
+                    place = previousPlace;
+                    tieCounter++;
+                }
+                else
+                {
+                    place = previousPlace + 1 + tieCounter;
+                    previousPlace = place;
+                    lastScore = score;
+                    tieCounter = 0;
+                }
+                sb.AppendLine($"{place}. {entry.Value.name}: {score} points\n{entry.Value.log}");
 
+                sb.AppendLine(entry.Value.drawing);
+            }
             return sb.ToString ();
         }
 
