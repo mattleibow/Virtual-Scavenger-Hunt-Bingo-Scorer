@@ -22,15 +22,15 @@ namespace BingoScorer
             });
 
             TallyItems(e.Frozen_Anything, new string[]{
-                geraldVersluis, steveHawley, shaneNeuville, jonathanDick, alexSoto, jonathanPeppers, ruiMarinho,
+                geraldVersluis, steveHawley, shaneNeuville, jonathanDick, alexSoto, jonathanPeppers, ruiMarinho, ezHart,
             });
 
             TallyItems(e.You_Doing_Exactly_What_A_Sign_Says, new string[]{
-                steveHawley, shaneNeuville, alexSoto, geraldVersluis, jonathanDick
+                steveHawley, shaneNeuville, alexSoto, geraldVersluis, jonathanDick, jonathanPeppers,
             });
 
             TallyItems(e.A_Candle, new string[]{
-               steveHawley, geraldVersluis, jonathanPeppers, shaneNeuville, ruiMarinho, alexSoto,
+               steveHawley, geraldVersluis, jonathanPeppers, shaneNeuville, ruiMarinho, alexSoto, ezHart, tjLambert,
             });
 
             TallyItems(e.Something_With_Microsoft_Logo, new string[]{
@@ -42,15 +42,15 @@ namespace BingoScorer
             });
 
             TallyItems(e.Perform_A_Tiktok_Dance, new string[]{
-                tjLambert, geraldVersluis, steveHawley, samanthaHouts, shaneNeuville, alexSoto, ruiMarinho,
+                tjLambert, geraldVersluis, steveHawley, samanthaHouts, shaneNeuville, alexSoto, ruiMarinho, jonathanPeppers,
             });
 
             TallyItems(e.Something_You_Cooked_Baked, new string[]{
-                steveHawley, geraldVersluis, rachelKang, ezHart, shaneNeuville, jonathanDick, alexSoto, ruiMarinho,
+                steveHawley, geraldVersluis, rachelKang, ezHart, shaneNeuville, jonathanDick, alexSoto, ruiMarinho, jonathanPeppers,
             });
 
             TallyItems(e.Video_Telling_Us_Your_Favorite_Joke, new string[]{
-                steveHawley, geraldVersluis, shaneNeuville, ruiMarinho, alexSoto,
+                steveHawley, geraldVersluis, shaneNeuville, ruiMarinho, alexSoto, jonathanPeppers,
             });
 
             TallyItems(e.Sock_With_A_Hole_In_It, new string[]{
@@ -62,27 +62,27 @@ namespace BingoScorer
             });
 
             TallyItems(e.Something_You_Cant_Live_Without, new string[]{
-                tjLambert, geraldVersluis, rachelKang, steveHawley, shaneNeuville, ruiMarinho, jonathanDick, alexSoto,
+                tjLambert, geraldVersluis, rachelKang, steveHawley, shaneNeuville, ruiMarinho, jonathanDick, alexSoto, jonathanPeppers,
             });
 
             TallyItems(e.A_Coin_From_The_Year_2021, new string[]{
-                steveHawley, shaneNeuville, geraldVersluis, alexSoto, ruiMarinho, ezHart,
+                steveHawley, shaneNeuville, geraldVersluis, alexSoto, ruiMarinho, ezHart, jonathanPeppers,
             });
 
             TallyItems(e.The_View_From_Your_Window, new string[]{
-                steveHawley, geraldVersluis, jonathanPeppers, tjLambert, shaneNeuville, ruiMarinho, jonathanDick, alexSoto, rachelKang,
+                steveHawley, geraldVersluis, jonathanPeppers, tjLambert, shaneNeuville, ruiMarinho, jonathanDick, alexSoto, rachelKang, ezHart,
             });
 
             TallyItems(e.A_Very_Very_Large_Tree, new string[]{
-                steveHawley, tjLambert, rachelKang, shaneNeuville, geraldVersluis, samanthaHouts, alexSoto, ruiMarinho, jonathanDick,
+                steveHawley, tjLambert, rachelKang, shaneNeuville, geraldVersluis, samanthaHouts, alexSoto, ruiMarinho, jonathanDick, jonathanPeppers,
             });
 
             TallyItems(e.Something_That_Came_Out_The_Year_You_Were_Born, new string[]{
-                steveHawley, shaneNeuville, geraldVersluis, ruiMarinho, samanthaHouts, alexSoto, jonathanDick,
+                steveHawley, shaneNeuville, geraldVersluis, ruiMarinho, samanthaHouts, alexSoto, jonathanDick, jonathanPeppers,
             });
 
             TallyItems(e.Piece_Of_Workout_Equipment, new string[]{
-                geraldVersluis, jonathanPeppers, steveHawley, shaneNeuville, ruiMarinho, samanthaHouts, alexSoto, ezHart,
+                geraldVersluis, jonathanPeppers, steveHawley, shaneNeuville, ruiMarinho, samanthaHouts, alexSoto, ezHart, tjLambert,
             });
 
             TallyItems(e.Imitate_Your_Favorite_Emoji, new string[]{
@@ -94,7 +94,7 @@ namespace BingoScorer
             });
 
             TallyItems(e.Something_Winter_Holiday_Related, new string[]{
-                jonathanPeppers, geraldVersluis, steveHawley, shaneNeuville, ruiMarinho, samanthaHouts, alexSoto, rachelKang,
+                jonathanPeppers, geraldVersluis, steveHawley, shaneNeuville, ruiMarinho, samanthaHouts, alexSoto, rachelKang, tjLambert,
             });
 
             TallyItems(e.Something_That_Begins_With_The_Letter_Z, new string[]{
@@ -106,7 +106,7 @@ namespace BingoScorer
             });
 
             TallyItems(e.A_Decorative_Pillow, new string[]{
-                jonathanPeppers, tjLambert, steveHawley, samanthaHouts, shaneNeuville, geraldVersluis, ruiMarinho, alexSoto,
+                jonathanPeppers, tjLambert, steveHawley, samanthaHouts, shaneNeuville, geraldVersluis, ruiMarinho, alexSoto, ezHart, rachelKang,
             });
 
             TallyItems(e.A_Cloud_That_Looks_Like_An_Animal, new string[]{
