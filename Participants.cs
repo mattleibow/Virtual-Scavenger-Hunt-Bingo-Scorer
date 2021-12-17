@@ -4,8 +4,10 @@ namespace BingoScorer
 	public class Participants
 	{
 		public const string alexSoto = "Alex Soto";
+		public const string deanEllis = "Dean Ellis";
 		public const string ezHart = "E.Z. Hart";
 		public const string geraldVersluis = "Gerald Versluis";
+		public const string israelSoto = "Israel Soto";
 		public const string jonathanDick = "Jonathan Dick";
 		public const string jonathanPeppers = "Jonathan Peppers";
 		public const string rachelKang = "Rachel Kang";

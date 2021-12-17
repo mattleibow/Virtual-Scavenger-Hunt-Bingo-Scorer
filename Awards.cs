@@ -112,7 +112,12 @@ namespace BingoScorer
                 // mark the rest of scores based on their percentage tier
                 else
                 {
-                    float percent = (float) (place - 2 - tieCounter) / (float) (Entries.Count - 2 - tieCounter);
+                    //float percent = (float) (place - 2 - tieCounter) / (float) (Entries.Count - 2 - tieCounter);
+                    //var group = percent <= 0.25 ? "Top 25 Percent" : percent <= 0.75 ? "Middle 50 Percent" : "Lower 25 Percent";
+                    //sb.AppendLine($"{group}. {entry.Value.name}: {(int)entry.Key} points Percentage: {percent}\n");
+                    //place++;
+
+                    float percent = (float)(entry.Key) / (float)(640);
                     var group = percent <= 0.25 ? "Top 25 Percent" : percent <= 0.75 ? "Middle 50 Percent" : "Lower 25 Percent";
                     sb.AppendLine($"{group}. {entry.Value.name}: {(int)entry.Key} points Percentage: {percent}\n");
                     place++;
