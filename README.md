@@ -6,7 +6,8 @@ This file calls MarkBoard.cs to create a board for each player and mark the squa
 player has completed. Then it will call Awards.cs and thus BingoBoard.cs to handle all the point tallying. Finally, Program.cs will write different forms of score counting outputs to the 'Virtual-Scavenger-Hunt-Bingo-Scorer' directory (if running the program in Visual Studio - Debug).
 
 ### MarkBoard.cs
-`VSCX Team *** This is where we add the names!`
+`*** VSCX Team *** This is where we add the names in each square event!`
+
 This file is where we will add players' names signifying which squares they have completed inside `TallyAllItems ()`. This file will create a BingoBoard instance for each player it finds inside TallyAllItems and then send the output back to Program.cs
 
 ### Awards.cs
@@ -14,3 +15,8 @@ This file is probably the messiest one that could use some cleanup. You will fin
 
 ### BingoBoard.cs
 This file contains the lower level logic called by Awards.cs. It can draw out the actually bingo board in a string and has all the rules to get point values based on the passed in BingoBoard.
+
+### Participants.cs
+`*** VSCX Team *** Please add in any names here`
+
+This file contains const strings for all players so that we don't have to worry about any mispellings! 
