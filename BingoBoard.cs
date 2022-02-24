@@ -86,450 +86,248 @@ namespace BingoScorer
 			return '_';
 		}
 
-		public void CalculateScore()
+		public void CalculateScore ()
 		{
 			// We can only calculate the scores one time!
 			if (Score != 0)
 				return;
 
-			CalculateAndFalsifyShapes();
+			CalculateShapes ();
 
-			// Do not Falisfy Verticals and Horizontals til they are all finished!
-			CalculateVerticalHorizontals();
-			FalsifyVerticalHorizontals();
+			CalculateVerticalHorizontals ();
 
-			CleanUpExtraSpaces();
+			AddEachSpace ();
 		}
 
-		void CalculateAndFalsifyShapes()
+		void CalculateShapes ()
 		{
-			if (IsFullBoard()) {
-				FalsifyFullBoard();
+			if (IsFullBoard ()) {
 				Score += 1000000;
 				Log.AppendLine("FullBoard! +1,000,000 Points!!");
 			}
 
-			if (IsSnowFlake()) {
-				FalsifySnowFlake();
-				Score += 5000;
-				Log.AppendLine("Snowflake +5,000 Points");
-			}
-
-			if (IsX()) {
-				FalsifyX();
-				Score += 1000;
-				Log.AppendLine("X for Xamarin +1,000 Points");
-			}
-
-			if (IsFourCorners()) {
-				FalsifyFourCorners();
+			if (IsN ()) {
 				Score += 500;
-				Log.AppendLine("Four Corners +500 Points");
+				Log.AppendLine("'N' +500 Points");
+			}
+
+			if (IsE ()) {
+				Score += 500;
+				Log.AppendLine("'E' +500 Points");
+			}
+
+			if (IsT ()) {
+				Score += 500;
+				Log.AppendLine("'T' +500 Points");
+			}
+
+			if (Is6 ()) {
+				Score += 500;
+				Log.AppendLine("'6' +500 Points");
 			}
 		}
 
 		void CalculateVerticalHorizontals()
 		{
 			if (IsVertical5()) {
-				Score += 100;
-				Log.AppendLine("Vertical 5 +100 Points");
+				Score += 50;
+				Log.AppendLine("Vertical 5 +50 Points");
 			}
 
 			if (IsVertical4()) {
-				Score += 100;
-				Log.AppendLine("Vertical 4 +100 Points");
+				Score += 50;
+				Log.AppendLine("Vertical 4 +50 Points");
 			}
 
 			if (IsVertical3()) {
-				Score += 100;
-				Log.AppendLine("Vertical 3 +100 Points");
+				Score += 50;
+				Log.AppendLine("Vertical 3 +50 Points");
 			}
 
 			if (IsVertical2()) {
-				Score += 100;
-				Log.AppendLine("Vertical 2 +100 Points");
+				Score += 50;
+				Log.AppendLine("Vertical 2 +50 Points");
 			}
 
 			if (IsVertical1()) {
-				Score += 100;
-				Log.AppendLine("Vertical 1 +100 Points");
+				Score += 50;
+				Log.AppendLine("Vertical 1 +50 Points");
 			}
 
 			if (IsHorizontal5()) {
-				Score += 100;
-				Log.AppendLine("Horizontal 5 +100 Points");
+				Score += 50;
+				Log.AppendLine("Horizontal 5 +50 Points");
 			}
 
 			if (IsHorizontal4()) {
-				Score += 100;
-				Log.AppendLine("Horizontal 4 +100 Points");
+				Score += 50;
+				Log.AppendLine("Horizontal 4 +50 Points");
 			}
 
 			if (IsHorizontal3()) {
-				Score += 100;
-				Log.AppendLine("Horizontal 3 +100 Points");
+				Score += 50;
+				Log.AppendLine("Horizontal 3 +50 Points");
 			}
 
 			if (IsHorizontal2()) {
-				Score += 100;
-				Log.AppendLine("Horizontal 2 +100 Points");
+				Score += 50;
+				Log.AppendLine("Horizontal 2 +50 Points");
 			}
 
 			if (IsHorizontal1()) {
-				Score += 100;
-				Log.AppendLine("Horizontal 1 +100 Points");
+				Score += 50;
+				Log.AppendLine("Horizontal 1 +50 Points");
 			}
 		}
 
-		void FalsifyVerticalHorizontals()
-		{
-			if (IsVertical5())
-				FalsifyVertical5();
-
-			if (IsVertical4())
-				FalsifyVertical4();
-
-			if (IsVertical3())
-				FalsifyVertical3();
-
-			if (IsVertical2())
-				FalsifyVertical2();
-
-			if (IsVertical1())
-				FalsifyVertical1();
-
-			if (IsHorizontal5())
-				FalsifyHorizontal5();
-
-			if (IsHorizontal4())
-				FalsifyHorizontal4();
-
-			if (IsHorizontal3())
-				FalsifyHorizontal3();
-
-			if (IsHorizontal2())
-				FalsifyHorizontal2();
-
-			if (IsHorizontal1())
-				FalsifyHorizontal1();
-		}
-
-		void CleanUpExtraSpaces()
+		void AddEachSpace()
 		{
 			if (CustomTeamsBackground) {
 				Score += 10;
-				Log.AppendLine("Your Work Setup +10 Points");
+				Log.AppendLine("Find someone who has a custom uploaded Teams background +10 Points");
 			}
 			if (BreakfastPicture) {
 				Score += 10;
-				Log.AppendLine("Frozen Anything +10 Points");
+				Log.AppendLine("Share a picture of you with your breakfast from today +10 Points");
 			}
 			if (ColorfulLights) {
 				Score += 10;
-				Log.AppendLine("You Doing Exactly What A Sign Says +10 Points");
+				Log.AppendLine("Find someone who has colorful lights in their workspace +10 Points");
 			}
 			if (SameBirthday) {
 				Score += 10;
-				Log.AppendLine("A Candle +10 Points");
+				Log.AppendLine("Find someone who shares the same birthday month as you +10 Points");
 			}
 			if (PlantPicture) {
 				Score += 10;
-				Log.AppendLine("Something With Microsoft Logo +10 Points");
+				Log.AppendLine("Share a picture of you with any plants you grow +10 Points");
 			}
 			if (PublishedApp) {
 				Score += 10;
-				Log.AppendLine("Your Favorite Mug +10 Points");
+				Log.AppendLine("Find someone who has published an app on any app store +10 Points");
 			}
 			if (NewTeamMember) {
 				Score += 10;
-				Log.AppendLine("Perform A Tiktok Dance +10 Points");
+				Log.AppendLine("Find someone who has been on their team (at the M1 level) for less than 1 year +10 Points");
 			}
 			if (Pi20) {
 				Score += 10;
-				Log.AppendLine("Something You Cooked or Baked +10 Points");
+				Log.AppendLine("Find someone who can recite at least the first 20 digits of pi from memory +10 Points");
 			}
 			if (WatchedFavoriteTVShow) {
 				Score += 10;
-				Log.AppendLine("Video Telling Us Your Favorite Joke +10 Points");
+				Log.AppendLine("Find someone who has watched your favorite TV show +10 Points");
 			}
 			if (WallArtPicture) {
 				Score += 10;
-				Log.AppendLine("Sock With A Hole In It +10 Points");
+				Log.AppendLine("Share a picture of some wall art +10 Points");
 			}
 			if (UniqueItemPicture) {
 				Score += 10;
-				Log.AppendLine("Baby or Childhood Photo +10 Points");
+				Log.AppendLine("Share a picture of you with a unique item you have at your house  +10 Points");
 			}
 			if (NonCatDog) {
 				Score += 10;
-				Log.AppendLine("Something You Cant Live Without +10 Points");
+				Log.AppendLine("Find Someone who has a pet that is not a dog or cat +10 Points");
+			}
+			if (FavoriteMemory) {
+				Score += 10;
+				Log.AppendLine("Share your favorite memory (in any form) +10 Points");
 			}
 			if (CountryFlagPicture) {
 				Score += 10;
-				Log.AppendLine("A Coin From The Year 2021 +10 Points");
+				Log.AppendLine("a picture of you with a physical object that has your country's flag on it +10 Points");
 			}
 			if (MoreThanOneLanguage) {
 				Score += 10;
-				Log.AppendLine("The View From Your Window +10 Points");
+				Log.AppendLine("Find someone who knows more than one language +10 Points");
 			}
 			if (PlayedFavoriteGame) {
 				Score += 10;
-				Log.AppendLine("A Very Very Large Tree +10 Points");
+				Log.AppendLine("Find someone who has played your favorite game +10 Points");
 			}
 			if (StartedCompany) {
 				Score += 10;
-				Log.AppendLine("Something That Came Out The Year You Were Born +10 Points");
+				Log.AppendLine("Find someone who once started their own company +10 Points");
 			}
 			if (HairstyleTenYearsAgoPicture) {
 				Score += 10;
-				Log.AppendLine("Piece Of Workout Equipment +10 Points");
+				Log.AppendLine("Share a picture of you featuring your hairstyle from at least 10 years ago +10 Points");
 			}
 			if (PerformingMusic) {
 				Score += 10;
-				Log.AppendLine("Imitate Your Favorite Emoji +10 Points");
+				Log.AppendLine("Share a recent video of you performing music (at least 10 seconds) +10 Points");
 			}
 			if (HandmadePicture) {
 				Score += 10;
-				Log.AppendLine("Decoration With A Quote On It +10 Points");
+				Log.AppendLine("Share a picture of you with something you handmade (i.e. painted, constructed, 3D-printed) +10 Points");
 			}
 			if (BookPicture) {
 				Score += 10;
-				Log.AppendLine("Something Winter Holiday Related +10 Points");
+				Log.AppendLine("Share a picture of you with a book that you are reading or plan to read +10 Points");
 			}
 			if (PublishedBookAcademicResearch) {
 				Score += 10;
-				Log.AppendLine("Something That Begins With The Letter Z +10 Points");
+				Log.AppendLine("Find someone who has published a book / academic research +10 Points");
 			}
 			if (BackwardsAlphabet) {
 				Score += 10;
-				Log.AppendLine("A Book With At Least 300 Pages +10 Points");
+				Log.AppendLine("Find someone who can perfectly recite the alphabet backwards (any language, <15s) +10 Points");
 			}
 			if (FavoriteNerdyGeekyPastimePicture) {
 				Score += 10;
-				Log.AppendLine("A Decorative Pillow +10 Points");
+				Log.AppendLine("Share a picture of you with your favorite nerdy/geeky pastime +10 Points");
 			}
 			if (FavoriteSnackPicture) {
 				Score += 10;
-				Log.AppendLine("A Cloud That Looks Like An Animal +10 Points");
+				Log.AppendLine("Share a picture of you with your favorite snack +10 Points");
 			}
 		}
 
-		bool IsVertical1()
-		{
-			return CustomTeamsBackground && PublishedApp && UniqueItemPicture
+		bool IsVertical1 () => CustomTeamsBackground && PublishedApp && UniqueItemPicture
 				&& PlayedFavoriteGame && BookPicture;
-		}
 
-		void FalsifyVertical1()
-		{
-			CustomTeamsBackground = false;
-			PublishedApp = false;
-			UniqueItemPicture = false;
-			PlayedFavoriteGame = false;
-			BookPicture = false;
-		}
+		bool IsVertical2 () => BreakfastPicture && NewTeamMember && NonCatDog
+				&& StartedCompany && PublishedBookAcademicResearch;
 
-		bool IsVertical2()
-		{
-			return BreakfastPicture && NewTeamMember && NonCatDog
-				&& StartedCompany
-				&& PublishedBookAcademicResearch;
-		}
-
-		void FalsifyVertical2()
-		{
-			BreakfastPicture = false;
-			NewTeamMember = false;
-			NonCatDog = false;
-			StartedCompany = false;
-			PublishedBookAcademicResearch = false;
-		}
-
-		bool IsVertical3()
-		{
-			return ColorfulLights && Pi20
+		bool IsVertical3 () => ColorfulLights && Pi20
 				&& HairstyleTenYearsAgoPicture && BackwardsAlphabet;
-		}
 
-		void FalsifyVertical3()
-		{
-			ColorfulLights = false;
-			Pi20 = false;
-			HairstyleTenYearsAgoPicture = false;
-			BackwardsAlphabet = false;
-			FavoriteMemory = false;
-		}
-
-		bool IsVertical4()
-		{
-			return SameBirthday && WatchedFavoriteTVShow && CountryFlagPicture
+		bool IsVertical4 () => SameBirthday && WatchedFavoriteTVShow && CountryFlagPicture
 				&& PerformingMusic && FavoriteNerdyGeekyPastimePicture;
-		}
 
-		void FalsifyVertical4()
-		{
-			SameBirthday = false;
-			WatchedFavoriteTVShow = false;
-			CountryFlagPicture = false;
-			PerformingMusic = false;
-			FavoriteNerdyGeekyPastimePicture = false;
-		}
-
-		bool IsVertical5()
-		{
-			return PlantPicture && WallArtPicture && MoreThanOneLanguage
+		bool IsVertical5 () => PlantPicture && WallArtPicture && MoreThanOneLanguage
 				&& HandmadePicture && FavoriteSnackPicture;
-		}
 
-		void FalsifyVertical5()
-		{
-			PlantPicture = false;
-			WallArtPicture = false;
-			MoreThanOneLanguage = false;
-			HandmadePicture = false;
-			FavoriteSnackPicture = false;
-		}
-
-		bool IsHorizontal1()
-		{
-			return CustomTeamsBackground && BreakfastPicture && ColorfulLights
+		bool IsHorizontal1 () => CustomTeamsBackground && BreakfastPicture && ColorfulLights
 				&& SameBirthday && PlantPicture;
-		}
 
-		void FalsifyHorizontal1()
-		{
-			CustomTeamsBackground = false;
-			BreakfastPicture = false;
-			ColorfulLights = false;
-			SameBirthday = false;
-			PlantPicture = false;
-		}
-
-		bool IsHorizontal2()
-		{
-			return PublishedApp && NewTeamMember && Pi20
+		bool IsHorizontal2 () => PublishedApp && NewTeamMember && Pi20
 				&& WatchedFavoriteTVShow && WallArtPicture;
-		}
 
-		void FalsifyHorizontal2()
-		{
-			PublishedApp = false;
-			NewTeamMember = false;
-			Pi20 = false;
-			WatchedFavoriteTVShow = false;
-			WallArtPicture = false;
-		}
-
-		bool IsHorizontal3()
-		{
-			return UniqueItemPicture && NonCatDog
+		bool IsHorizontal3 () => UniqueItemPicture && NonCatDog
 				&& CountryFlagPicture && MoreThanOneLanguage;
-		}
 
-		void FalsifyHorizontal3()
-		{
-			UniqueItemPicture = false;
-			NonCatDog = false;
-			CountryFlagPicture = false;
-			MoreThanOneLanguage = false;
-			FavoriteMemory = false;
-		}
-
-		bool IsHorizontal4()
-		{
-			return PlayedFavoriteGame && StartedCompany
+		bool IsHorizontal4 () => PlayedFavoriteGame && StartedCompany
 				&& HairstyleTenYearsAgoPicture && PerformingMusic && HandmadePicture;
-		}
 
-		void FalsifyHorizontal4()
-		{
-			PlayedFavoriteGame = false;
-			StartedCompany = false;
-			HairstyleTenYearsAgoPicture = false;
-			PerformingMusic = false;
-			HandmadePicture = false;
-		}
-
-		bool IsHorizontal5()
-		{
-			return BookPicture && PublishedBookAcademicResearch
+		bool IsHorizontal5 () => BookPicture && PublishedBookAcademicResearch
 				&& BackwardsAlphabet && FavoriteNerdyGeekyPastimePicture && FavoriteSnackPicture;
-		}
 
-		void FalsifyHorizontal5()
-		{
-			BookPicture = false;
-			PublishedBookAcademicResearch = false;
-			BackwardsAlphabet = false;
-			FavoriteNerdyGeekyPastimePicture = false;
-			FavoriteSnackPicture = false;
-		}
+		bool IsDownhillDiagonal () => CustomTeamsBackground && NewTeamMember && FavoriteMemory
+			&& PerformingMusic && FavoriteSnackPicture;
 
-		bool IsFourCorners()
-		{
-			return CustomTeamsBackground && PlantPicture
-				&& BookPicture && FavoriteSnackPicture;
-		}
+		bool IsN () => IsVertical1 () && IsDownhillDiagonal () && IsVertical5 ();
 
-		void FalsifyFourCorners()
-		{
-			CustomTeamsBackground = false;
-			PlantPicture = false;
-			BookPicture = false;
-			FavoriteSnackPicture = false;
-		}
+		bool IsE () => IsHorizontal1 () && IsHorizontal3 () && IsHorizontal5 () && IsVertical1 ();
 
-		bool IsX()
-		{
-			return IsFourCorners() & NewTeamMember && WatchedFavoriteTVShow
-				&& StartedCompany && PerformingMusic;
-		}
+		bool IsT () => IsHorizontal1 () && IsVertical3 ();
 
-		void FalsifyX()
-		{
-			FalsifyFourCorners();
-			NewTeamMember = false;
-			WatchedFavoriteTVShow = false;
-			StartedCompany = false;
-			PerformingMusic = false;
-			FavoriteMemory = false;
-		}
+		bool Is6 () => IsHorizontal1 () && IsHorizontal3 () && IsHorizontal5 () && IsVertical1 ()
+			&& HandmadePicture;
 
-		bool IsSnowFlake()
-		{
-			return IsX() && IsHorizontal3() && IsVertical3();
-		}
-
-		void FalsifySnowFlake()
-		{
-			FalsifyX();
-			FalsifyHorizontal3();
-			FalsifyVertical3();
-			FavoriteMemory = false;
-		}
-
-
-		bool IsFullBoard()
-		{
-			return IsSnowFlake() && PublishedApp && BreakfastPicture && SameBirthday
-				&& WallArtPicture && HandmadePicture
-				&& FavoriteNerdyGeekyPastimePicture && PublishedBookAcademicResearch
-				&& PlayedFavoriteGame;
-		}
-
-		void FalsifyFullBoard()
-		{
-			PublishedApp = false;
-			BreakfastPicture = false;
-			SameBirthday = false;
-			WallArtPicture = false;
-			HandmadePicture = false;
-			FavoriteNerdyGeekyPastimePicture = false;
-			PublishedBookAcademicResearch = false;
-			PlayedFavoriteGame = false;
-			FavoriteMemory = false;
-			FalsifySnowFlake();
-		}
+		bool IsFullBoard () => IsHorizontal1 () && IsHorizontal2 () &&
+				IsHorizontal3 () && IsHorizontal4 () && IsHorizontal5 ();
 	}
 
 	public static class BingoBoardExtensions
