@@ -9,39 +9,39 @@ namespace BingoScorer
 	public class BingoBoard
 	{
 		// Row 1
-		internal bool Your_Work_Setup { get; set; }
-		internal bool Frozen_Anything { get; set; }
-		internal bool You_Doing_Exactly_What_A_Sign_Says { get; set; }
-		internal bool A_Candle { get; set; }
-		internal bool Something_With_Microsoft_Logo { get; set; }
+		internal bool CustomTeamsBackground { get; set; }
+		internal bool BreakfastPicture { get; set; }
+		internal bool ColorfulLights { get; set; }
+		internal bool SameBirthday { get; set; }
+		internal bool PlantPicture { get; set; }
 
 		// Row 2
-		internal bool Your_Favorite_Mug { get; set; }
-		internal bool Perform_A_Tiktok_Dance { get; set; }
-		internal bool Something_You_Cooked_Baked { get; set; }
-		internal bool Video_Telling_Us_Your_Favorite_Joke { get; set; }
-		internal bool Sock_With_A_Hole_In_It { get; set; }
+		internal bool PublishedApp { get; set; }
+		internal bool NewTeamMember { get; set; }
+		internal bool Pi20 { get; set; }
+		internal bool WatchedFavoriteTVShow { get; set; }
+		internal bool WallArtPicture { get; set; }
 
 		// Row 3
-		internal bool Baby_Childhood_Photo { get; set; }
-		internal bool Something_You_Cant_Live_Without { get; set; }
-		internal bool Free_Space { get; set; } = true;
-		internal bool A_Coin_From_The_Year_2021 { get; set; }
-		internal bool The_View_From_Your_Window { get; set; }
+		internal bool UniqueItemPicture { get; set; }
+		internal bool NonCatDog { get; set; }
+		internal bool FavoriteMemory { get; set; } = true;
+		internal bool CountryFlagPicture { get; set; }
+		internal bool MoreThanOneLanguage { get; set; }
 
 		// Row 4
-		internal bool A_Very_Very_Large_Tree { get; set; }
-		internal bool Something_That_Came_Out_The_Year_You_Were_Born { get; set; }
-		internal bool Piece_Of_Workout_Equipment { get; set; }
-		internal bool Imitate_Your_Favorite_Emoji { get; set; }
-		internal bool Decoration_With_A_Quote_On_It { get; set; }
+		internal bool PlayedFavoriteGame { get; set; }
+		internal bool StartedCompany { get; set; }
+		internal bool HairstyleTenYearsAgoPicture { get; set; }
+		internal bool PerformingMusic { get; set; }
+		internal bool HandmadePicture { get; set; }
 
 		// Row 5
-		internal bool Something_Winter_Holiday_Related { get; set; }
-		internal bool Something_That_Begins_With_The_Letter_Z { get; set; }
-		internal bool A_Book_With_At_Least_300_Pages { get; set; }
-		internal bool A_Decorative_Pillow { get; set; }
-		internal bool A_Cloud_That_Looks_Like_An_Animal { get; set; }
+		internal bool BookPicture { get; set; }
+		internal bool PublishedBookAcademicResearch { get; set; }
+		internal bool BackwardsAlphabet { get; set; }
+		internal bool FavoriteNerdyGeekyPastimePicture { get; set; }
+		internal bool FavoriteSnackPicture { get; set; }
 
 		public string Name { get; set; }
 		public float Score { get; set; }
@@ -60,19 +60,19 @@ namespace BingoScorer
 		{
 			StringBuilder sb = new StringBuilder ("-----------\n");
 			// Row 1
-			sb.Append($"|{Mark(Your_Work_Setup)}|{Mark(Frozen_Anything)}|{Mark(You_Doing_Exactly_What_A_Sign_Says)}|{Mark(A_Candle)}|{Mark(Something_With_Microsoft_Logo)}|\n");
+			sb.Append($"|{Mark(CustomTeamsBackground)}|{Mark(BreakfastPicture)}|{Mark(ColorfulLights)}|{Mark(SameBirthday)}|{Mark(PlantPicture)}|\n");
 
 			// Row 2
-			sb.Append($"|{Mark(Your_Favorite_Mug)}|{Mark(Perform_A_Tiktok_Dance)}|{Mark(Something_You_Cooked_Baked)}|{Mark(Video_Telling_Us_Your_Favorite_Joke)}|{Mark(Sock_With_A_Hole_In_It)}|\n");
+			sb.Append($"|{Mark(PublishedApp)}|{Mark(NewTeamMember)}|{Mark(Pi20)}|{Mark(WatchedFavoriteTVShow)}|{Mark(WallArtPicture)}|\n");
 
 			// Row 3
-			sb.Append($"|{Mark(Baby_Childhood_Photo)}|{Mark(Something_You_Cant_Live_Without)}|{Mark(Free_Space)}|{Mark(A_Coin_From_The_Year_2021)}|{Mark(The_View_From_Your_Window)}|\n");
+			sb.Append($"|{Mark(UniqueItemPicture)}|{Mark(NonCatDog)}|{Mark(FavoriteMemory)}|{Mark(CountryFlagPicture)}|{Mark(MoreThanOneLanguage)}|\n");
 
 			// Row 4
-			sb.Append($"|{Mark(A_Very_Very_Large_Tree)}|{Mark(Something_That_Came_Out_The_Year_You_Were_Born)}|{Mark(Piece_Of_Workout_Equipment)}|{Mark(Imitate_Your_Favorite_Emoji)}|{Mark(Decoration_With_A_Quote_On_It)}|\n");
+			sb.Append($"|{Mark(PlayedFavoriteGame)}|{Mark(StartedCompany)}|{Mark(HairstyleTenYearsAgoPicture)}|{Mark(PerformingMusic)}|{Mark(HandmadePicture)}|\n");
 
 			// Row 5
-			sb.Append($"|{Mark(Something_Winter_Holiday_Related)}|{Mark(Something_That_Begins_With_The_Letter_Z)}|{Mark(A_Book_With_At_Least_300_Pages)}|{Mark(A_Decorative_Pillow)}|{Mark(A_Cloud_That_Looks_Like_An_Animal)}|\n");
+			sb.Append($"|{Mark(BookPicture)}|{Mark(PublishedBookAcademicResearch)}|{Mark(BackwardsAlphabet)}|{Mark(FavoriteNerdyGeekyPastimePicture)}|{Mark(FavoriteSnackPicture)}|\n");
 
 			sb.Append("-----------\n");
 
@@ -216,99 +216,99 @@ namespace BingoScorer
 
 		void CleanUpExtraSpaces()
 		{
-			if (Your_Work_Setup) {
+			if (CustomTeamsBackground) {
 				Score += 10;
 				Log.AppendLine("Your Work Setup +10 Points");
 			}
-			if (Frozen_Anything) {
+			if (BreakfastPicture) {
 				Score += 10;
 				Log.AppendLine("Frozen Anything +10 Points");
 			}
-			if (You_Doing_Exactly_What_A_Sign_Says) {
+			if (ColorfulLights) {
 				Score += 10;
 				Log.AppendLine("You Doing Exactly What A Sign Says +10 Points");
 			}
-			if (A_Candle) {
+			if (SameBirthday) {
 				Score += 10;
 				Log.AppendLine("A Candle +10 Points");
 			}
-			if (Something_With_Microsoft_Logo) {
+			if (PlantPicture) {
 				Score += 10;
 				Log.AppendLine("Something With Microsoft Logo +10 Points");
 			}
-			if (Your_Favorite_Mug) {
+			if (PublishedApp) {
 				Score += 10;
 				Log.AppendLine("Your Favorite Mug +10 Points");
 			}
-			if (Perform_A_Tiktok_Dance) {
+			if (NewTeamMember) {
 				Score += 10;
 				Log.AppendLine("Perform A Tiktok Dance +10 Points");
 			}
-			if (Something_You_Cooked_Baked) {
+			if (Pi20) {
 				Score += 10;
 				Log.AppendLine("Something You Cooked or Baked +10 Points");
 			}
-			if (Video_Telling_Us_Your_Favorite_Joke) {
+			if (WatchedFavoriteTVShow) {
 				Score += 10;
 				Log.AppendLine("Video Telling Us Your Favorite Joke +10 Points");
 			}
-			if (Sock_With_A_Hole_In_It) {
+			if (WallArtPicture) {
 				Score += 10;
 				Log.AppendLine("Sock With A Hole In It +10 Points");
 			}
-			if (Baby_Childhood_Photo) {
+			if (UniqueItemPicture) {
 				Score += 10;
 				Log.AppendLine("Baby or Childhood Photo +10 Points");
 			}
-			if (Something_You_Cant_Live_Without) {
+			if (NonCatDog) {
 				Score += 10;
 				Log.AppendLine("Something You Cant Live Without +10 Points");
 			}
-			if (A_Coin_From_The_Year_2021) {
+			if (CountryFlagPicture) {
 				Score += 10;
 				Log.AppendLine("A Coin From The Year 2021 +10 Points");
 			}
-			if (The_View_From_Your_Window) {
+			if (MoreThanOneLanguage) {
 				Score += 10;
 				Log.AppendLine("The View From Your Window +10 Points");
 			}
-			if (A_Very_Very_Large_Tree) {
+			if (PlayedFavoriteGame) {
 				Score += 10;
 				Log.AppendLine("A Very Very Large Tree +10 Points");
 			}
-			if (Something_That_Came_Out_The_Year_You_Were_Born) {
+			if (StartedCompany) {
 				Score += 10;
 				Log.AppendLine("Something That Came Out The Year You Were Born +10 Points");
 			}
-			if (Piece_Of_Workout_Equipment) {
+			if (HairstyleTenYearsAgoPicture) {
 				Score += 10;
 				Log.AppendLine("Piece Of Workout Equipment +10 Points");
 			}
-			if (Imitate_Your_Favorite_Emoji) {
+			if (PerformingMusic) {
 				Score += 10;
 				Log.AppendLine("Imitate Your Favorite Emoji +10 Points");
 			}
-			if (Decoration_With_A_Quote_On_It) {
+			if (HandmadePicture) {
 				Score += 10;
 				Log.AppendLine("Decoration With A Quote On It +10 Points");
 			}
-			if (Something_Winter_Holiday_Related) {
+			if (BookPicture) {
 				Score += 10;
 				Log.AppendLine("Something Winter Holiday Related +10 Points");
 			}
-			if (Something_That_Begins_With_The_Letter_Z) {
+			if (PublishedBookAcademicResearch) {
 				Score += 10;
 				Log.AppendLine("Something That Begins With The Letter Z +10 Points");
 			}
-			if (A_Book_With_At_Least_300_Pages) {
+			if (BackwardsAlphabet) {
 				Score += 10;
 				Log.AppendLine("A Book With At Least 300 Pages +10 Points");
 			}
-			if (A_Decorative_Pillow) {
+			if (FavoriteNerdyGeekyPastimePicture) {
 				Score += 10;
 				Log.AppendLine("A Decorative Pillow +10 Points");
 			}
-			if (A_Cloud_That_Looks_Like_An_Animal) {
+			if (FavoriteSnackPicture) {
 				Score += 10;
 				Log.AppendLine("A Cloud That Looks Like An Animal +10 Points");
 			}
@@ -316,183 +316,183 @@ namespace BingoScorer
 
 		bool IsVertical1()
 		{
-			return Your_Work_Setup && Your_Favorite_Mug && Baby_Childhood_Photo
-				&& A_Very_Very_Large_Tree && Something_Winter_Holiday_Related;
+			return CustomTeamsBackground && PublishedApp && UniqueItemPicture
+				&& PlayedFavoriteGame && BookPicture;
 		}
 
 		void FalsifyVertical1()
 		{
-			Your_Work_Setup = false;
-			Your_Favorite_Mug = false;
-			Baby_Childhood_Photo = false;
-			A_Very_Very_Large_Tree = false;
-			Something_Winter_Holiday_Related = false;
+			CustomTeamsBackground = false;
+			PublishedApp = false;
+			UniqueItemPicture = false;
+			PlayedFavoriteGame = false;
+			BookPicture = false;
 		}
 
 		bool IsVertical2()
 		{
-			return Frozen_Anything && Perform_A_Tiktok_Dance && Something_You_Cant_Live_Without
-				&& Something_That_Came_Out_The_Year_You_Were_Born
-				&& Something_That_Begins_With_The_Letter_Z;
+			return BreakfastPicture && NewTeamMember && NonCatDog
+				&& StartedCompany
+				&& PublishedBookAcademicResearch;
 		}
 
 		void FalsifyVertical2()
 		{
-			Frozen_Anything = false;
-			Perform_A_Tiktok_Dance = false;
-			Something_You_Cant_Live_Without = false;
-			Something_That_Came_Out_The_Year_You_Were_Born = false;
-			Something_That_Begins_With_The_Letter_Z = false;
+			BreakfastPicture = false;
+			NewTeamMember = false;
+			NonCatDog = false;
+			StartedCompany = false;
+			PublishedBookAcademicResearch = false;
 		}
 
 		bool IsVertical3()
 		{
-			return You_Doing_Exactly_What_A_Sign_Says && Something_You_Cooked_Baked
-				&& Piece_Of_Workout_Equipment && A_Book_With_At_Least_300_Pages;
+			return ColorfulLights && Pi20
+				&& HairstyleTenYearsAgoPicture && BackwardsAlphabet;
 		}
 
 		void FalsifyVertical3()
 		{
-			You_Doing_Exactly_What_A_Sign_Says = false;
-			Something_You_Cooked_Baked = false;
-			Piece_Of_Workout_Equipment = false;
-			A_Book_With_At_Least_300_Pages = false;
-			Free_Space = false;
+			ColorfulLights = false;
+			Pi20 = false;
+			HairstyleTenYearsAgoPicture = false;
+			BackwardsAlphabet = false;
+			FavoriteMemory = false;
 		}
 
 		bool IsVertical4()
 		{
-			return A_Candle && Video_Telling_Us_Your_Favorite_Joke && A_Coin_From_The_Year_2021
-				&& Imitate_Your_Favorite_Emoji && A_Decorative_Pillow;
+			return SameBirthday && WatchedFavoriteTVShow && CountryFlagPicture
+				&& PerformingMusic && FavoriteNerdyGeekyPastimePicture;
 		}
 
 		void FalsifyVertical4()
 		{
-			A_Candle = false;
-			Video_Telling_Us_Your_Favorite_Joke = false;
-			A_Coin_From_The_Year_2021 = false;
-			Imitate_Your_Favorite_Emoji = false;
-			A_Decorative_Pillow = false;
+			SameBirthday = false;
+			WatchedFavoriteTVShow = false;
+			CountryFlagPicture = false;
+			PerformingMusic = false;
+			FavoriteNerdyGeekyPastimePicture = false;
 		}
 
 		bool IsVertical5()
 		{
-			return Something_With_Microsoft_Logo && Sock_With_A_Hole_In_It && The_View_From_Your_Window
-				&& Decoration_With_A_Quote_On_It && A_Cloud_That_Looks_Like_An_Animal;
+			return PlantPicture && WallArtPicture && MoreThanOneLanguage
+				&& HandmadePicture && FavoriteSnackPicture;
 		}
 
 		void FalsifyVertical5()
 		{
-			Something_With_Microsoft_Logo = false;
-			Sock_With_A_Hole_In_It = false;
-			The_View_From_Your_Window = false;
-			Decoration_With_A_Quote_On_It = false;
-			A_Cloud_That_Looks_Like_An_Animal = false;
+			PlantPicture = false;
+			WallArtPicture = false;
+			MoreThanOneLanguage = false;
+			HandmadePicture = false;
+			FavoriteSnackPicture = false;
 		}
 
 		bool IsHorizontal1()
 		{
-			return Your_Work_Setup && Frozen_Anything && You_Doing_Exactly_What_A_Sign_Says
-				&& A_Candle && Something_With_Microsoft_Logo;
+			return CustomTeamsBackground && BreakfastPicture && ColorfulLights
+				&& SameBirthday && PlantPicture;
 		}
 
 		void FalsifyHorizontal1()
 		{
-			Your_Work_Setup = false;
-			Frozen_Anything = false;
-			You_Doing_Exactly_What_A_Sign_Says = false;
-			A_Candle = false;
-			Something_With_Microsoft_Logo = false;
+			CustomTeamsBackground = false;
+			BreakfastPicture = false;
+			ColorfulLights = false;
+			SameBirthday = false;
+			PlantPicture = false;
 		}
 
 		bool IsHorizontal2()
 		{
-			return Your_Favorite_Mug && Perform_A_Tiktok_Dance && Something_You_Cooked_Baked
-				&& Video_Telling_Us_Your_Favorite_Joke && Sock_With_A_Hole_In_It;
+			return PublishedApp && NewTeamMember && Pi20
+				&& WatchedFavoriteTVShow && WallArtPicture;
 		}
 
 		void FalsifyHorizontal2()
 		{
-			Your_Favorite_Mug = false;
-			Perform_A_Tiktok_Dance = false;
-			Something_You_Cooked_Baked = false;
-			Video_Telling_Us_Your_Favorite_Joke = false;
-			Sock_With_A_Hole_In_It = false;
+			PublishedApp = false;
+			NewTeamMember = false;
+			Pi20 = false;
+			WatchedFavoriteTVShow = false;
+			WallArtPicture = false;
 		}
 
 		bool IsHorizontal3()
 		{
-			return Baby_Childhood_Photo && Something_You_Cant_Live_Without
-				&& A_Coin_From_The_Year_2021 && The_View_From_Your_Window;
+			return UniqueItemPicture && NonCatDog
+				&& CountryFlagPicture && MoreThanOneLanguage;
 		}
 
 		void FalsifyHorizontal3()
 		{
-			Baby_Childhood_Photo = false;
-			Something_You_Cant_Live_Without = false;
-			A_Coin_From_The_Year_2021 = false;
-			The_View_From_Your_Window = false;
-			Free_Space = false;
+			UniqueItemPicture = false;
+			NonCatDog = false;
+			CountryFlagPicture = false;
+			MoreThanOneLanguage = false;
+			FavoriteMemory = false;
 		}
 
 		bool IsHorizontal4()
 		{
-			return A_Very_Very_Large_Tree && Something_That_Came_Out_The_Year_You_Were_Born
-				&& Piece_Of_Workout_Equipment && Imitate_Your_Favorite_Emoji && Decoration_With_A_Quote_On_It;
+			return PlayedFavoriteGame && StartedCompany
+				&& HairstyleTenYearsAgoPicture && PerformingMusic && HandmadePicture;
 		}
 
 		void FalsifyHorizontal4()
 		{
-			A_Very_Very_Large_Tree = false;
-			Something_That_Came_Out_The_Year_You_Were_Born = false;
-			Piece_Of_Workout_Equipment = false;
-			Imitate_Your_Favorite_Emoji = false;
-			Decoration_With_A_Quote_On_It = false;
+			PlayedFavoriteGame = false;
+			StartedCompany = false;
+			HairstyleTenYearsAgoPicture = false;
+			PerformingMusic = false;
+			HandmadePicture = false;
 		}
 
 		bool IsHorizontal5()
 		{
-			return Something_Winter_Holiday_Related && Something_That_Begins_With_The_Letter_Z
-				&& A_Book_With_At_Least_300_Pages && A_Decorative_Pillow && A_Cloud_That_Looks_Like_An_Animal;
+			return BookPicture && PublishedBookAcademicResearch
+				&& BackwardsAlphabet && FavoriteNerdyGeekyPastimePicture && FavoriteSnackPicture;
 		}
 
 		void FalsifyHorizontal5()
 		{
-			Something_Winter_Holiday_Related = false;
-			Something_That_Begins_With_The_Letter_Z = false;
-			A_Book_With_At_Least_300_Pages = false;
-			A_Decorative_Pillow = false;
-			A_Cloud_That_Looks_Like_An_Animal = false;
+			BookPicture = false;
+			PublishedBookAcademicResearch = false;
+			BackwardsAlphabet = false;
+			FavoriteNerdyGeekyPastimePicture = false;
+			FavoriteSnackPicture = false;
 		}
 
 		bool IsFourCorners()
 		{
-			return Your_Work_Setup && Something_With_Microsoft_Logo
-				&& Something_Winter_Holiday_Related && A_Cloud_That_Looks_Like_An_Animal;
+			return CustomTeamsBackground && PlantPicture
+				&& BookPicture && FavoriteSnackPicture;
 		}
 
 		void FalsifyFourCorners()
 		{
-			Your_Work_Setup = false;
-			Something_With_Microsoft_Logo = false;
-			Something_Winter_Holiday_Related = false;
-			A_Cloud_That_Looks_Like_An_Animal = false;
+			CustomTeamsBackground = false;
+			PlantPicture = false;
+			BookPicture = false;
+			FavoriteSnackPicture = false;
 		}
 
 		bool IsX()
 		{
-			return IsFourCorners() & Perform_A_Tiktok_Dance && Video_Telling_Us_Your_Favorite_Joke
-				&& Something_That_Came_Out_The_Year_You_Were_Born && Imitate_Your_Favorite_Emoji;
+			return IsFourCorners() & NewTeamMember && WatchedFavoriteTVShow
+				&& StartedCompany && PerformingMusic;
 		}
 
 		void FalsifyX()
 		{
 			FalsifyFourCorners();
-			Perform_A_Tiktok_Dance = false;
-			Video_Telling_Us_Your_Favorite_Joke = false;
-			Something_That_Came_Out_The_Year_You_Were_Born = false;
-			Imitate_Your_Favorite_Emoji = false;
-			Free_Space = false;
+			NewTeamMember = false;
+			WatchedFavoriteTVShow = false;
+			StartedCompany = false;
+			PerformingMusic = false;
+			FavoriteMemory = false;
 		}
 
 		bool IsSnowFlake()
@@ -505,29 +505,29 @@ namespace BingoScorer
 			FalsifyX();
 			FalsifyHorizontal3();
 			FalsifyVertical3();
-			Free_Space = false;
+			FavoriteMemory = false;
 		}
 
 
 		bool IsFullBoard()
 		{
-			return IsSnowFlake() && Your_Favorite_Mug && Frozen_Anything && A_Candle
-				&& Sock_With_A_Hole_In_It && Decoration_With_A_Quote_On_It
-				&& A_Decorative_Pillow && Something_That_Begins_With_The_Letter_Z
-				&& A_Very_Very_Large_Tree;
+			return IsSnowFlake() && PublishedApp && BreakfastPicture && SameBirthday
+				&& WallArtPicture && HandmadePicture
+				&& FavoriteNerdyGeekyPastimePicture && PublishedBookAcademicResearch
+				&& PlayedFavoriteGame;
 		}
 
 		void FalsifyFullBoard()
 		{
-			Your_Favorite_Mug = false;
-			Frozen_Anything = false;
-			A_Candle = false;
-			Sock_With_A_Hole_In_It = false;
-			Decoration_With_A_Quote_On_It = false;
-			A_Decorative_Pillow = false;
-			Something_That_Begins_With_The_Letter_Z = false;
-			A_Very_Very_Large_Tree = false;
-			Free_Space = false;
+			PublishedApp = false;
+			BreakfastPicture = false;
+			SameBirthday = false;
+			WallArtPicture = false;
+			HandmadePicture = false;
+			FavoriteNerdyGeekyPastimePicture = false;
+			PublishedBookAcademicResearch = false;
+			PlayedFavoriteGame = false;
+			FavoriteMemory = false;
 			FalsifySnowFlake();
 		}
 	}
@@ -537,100 +537,100 @@ namespace BingoScorer
 		public static void IncludeItem(this BingoBoard board, e item)
 		{
 			switch (item) {
-				case e.Your_Work_Setup:
-					board.Your_Work_Setup = true;
+				case e.CustomTeamsBackground:
+					board.CustomTeamsBackground = true;
 					break;
 
-				case e.Frozen_Anything:
-					board.Frozen_Anything = true;
+				case e.BreakfastPicture:
+					board.BreakfastPicture = true;
 					break;
 
-				case e.You_Doing_Exactly_What_A_Sign_Says:
-					board.You_Doing_Exactly_What_A_Sign_Says = true;
+				case e.ColorfulLights:
+					board.ColorfulLights = true;
 					break;
 
-				case e.A_Candle:
-					board.A_Candle = true;
+				case e.SameBirthday:
+					board.SameBirthday = true;
 					break;
 
-				case e.Something_With_Microsoft_Logo:
-					board.Something_With_Microsoft_Logo = true;
+				case e.PlantPicture:
+					board.PlantPicture = true;
 					break;
 
-				case e.Your_Favorite_Mug:
-					board.Your_Favorite_Mug = true;
+				case e.PublishedApp:
+					board.PublishedApp = true;
 					break;
 
-				case e.Perform_A_Tiktok_Dance:
-					board.Perform_A_Tiktok_Dance = true;
+				case e.NewTeamMember:
+					board.NewTeamMember = true;
 					break;
 
-				case e.Something_You_Cooked_Baked:
-					board.Something_You_Cooked_Baked = true;
+				case e.Pi20:
+					board.Pi20 = true;
 					break;
 
-				case e.Video_Telling_Us_Your_Favorite_Joke:
-					board.Video_Telling_Us_Your_Favorite_Joke = true;
+				case e.WatchedFavoriteTVShow:
+					board.WatchedFavoriteTVShow = true;
 					break;
 
-				case e.Sock_With_A_Hole_In_It:
-					board.Sock_With_A_Hole_In_It = true;
+				case e.WallArtPicture:
+					board.WallArtPicture = true;
 					break;
 
-				case e.Baby_Childhood_Photo:
-					board.Baby_Childhood_Photo = true;
+				case e.UniqueItemPicture:
+					board.UniqueItemPicture = true;
 					break;
 
-				case e.Something_You_Cant_Live_Without:
-					board.Something_You_Cant_Live_Without = true;
+				case e.NonCatDog:
+					board.NonCatDog = true;
 					break;
 
-				case e.A_Coin_From_The_Year_2021:
-					board.A_Coin_From_The_Year_2021 = true;
+				case e.CountryFlagPicture:
+					board.CountryFlagPicture = true;
 					break;
 
-				case e.The_View_From_Your_Window:
-					board.The_View_From_Your_Window = true;
+				case e.MoreThanOneLanguage:
+					board.MoreThanOneLanguage = true;
 					break;
 
-				case e.A_Very_Very_Large_Tree:
-					board.A_Very_Very_Large_Tree = true;
+				case e.PlayedFavoriteGame:
+					board.PlayedFavoriteGame = true;
 					break;
 
-				case e.Something_That_Came_Out_The_Year_You_Were_Born:
-					board.Something_That_Came_Out_The_Year_You_Were_Born = true;
+				case e.StartedCompany:
+					board.StartedCompany = true;
 					break;
 
-				case e.Piece_Of_Workout_Equipment:
-					board.Piece_Of_Workout_Equipment = true;
+				case e.HairstyleTenYearsAgoPicture:
+					board.HairstyleTenYearsAgoPicture = true;
 					break;
 
-				case e.Imitate_Your_Favorite_Emoji:
-					board.Imitate_Your_Favorite_Emoji = true;
+				case e.PerformingMusic:
+					board.PerformingMusic = true;
 					break;
 
-				case e.Decoration_With_A_Quote_On_It:
-					board.Decoration_With_A_Quote_On_It = true;
+				case e.HandmadePicture:
+					board.HandmadePicture = true;
 					break;
 
-				case e.Something_Winter_Holiday_Related:
-					board.Something_Winter_Holiday_Related = true;
+				case e.BookPicture:
+					board.BookPicture = true;
 					break;
 
-				case e.Something_That_Begins_With_The_Letter_Z:
-					board.Something_That_Begins_With_The_Letter_Z = true;
+				case e.PublishedBookAcademicResearch:
+					board.PublishedBookAcademicResearch = true;
 					break;
 
-				case e.A_Book_With_At_Least_300_Pages:
-					board.A_Book_With_At_Least_300_Pages = true;
+				case e.BackwardsAlphabet:
+					board.BackwardsAlphabet = true;
 					break;
 
-				case e.A_Decorative_Pillow:
-					board.A_Decorative_Pillow = true;
+				case e.FavoriteNerdyGeekyPastimePicture:
+					board.FavoriteNerdyGeekyPastimePicture = true;
 					break;
 
-				case e.A_Cloud_That_Looks_Like_An_Animal:
-					board.A_Cloud_That_Looks_Like_An_Animal = true;
+				case e.FavoriteSnackPicture:
+					board.FavoriteSnackPicture = true;
 					break;
 			}
 		}
