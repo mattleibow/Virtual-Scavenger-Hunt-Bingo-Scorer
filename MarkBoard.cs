@@ -17,23 +17,8 @@ namespace BingoScorer
 		// This is where the names for each event go!
 		static void TallyAllItems()
 		{
+			// Advay's Categories
 			TallyItems(e.CustomTeamsBackground, new string[]{
-
-			});
-
-			TallyItems(e.BreakfastPicture, new string[]{
-
-			});
-
-			TallyItems(e.ColorfulLights, new string[]{
-
-			});
-
-			TallyItems(e.SameBirthday, new string[]{
-
-			});
-
-			TallyItems(e.PlantPicture, new string[]{
 
 			});
 
@@ -41,39 +26,7 @@ namespace BingoScorer
 
 			});
 
-			TallyItems(e.NewTeamMember, new string[]{
-
-			});
-
-			TallyItems(e.Pi20, new string[]{
-
-			});
-
-			TallyItems(e.WatchedFavoriteTVShow, new string[]{
-
-			});
-
-			TallyItems(e.WallArtPicture, new string[]{
-
-			});
-
 			TallyItems(e.UniqueItemPicture, new string[]{
-
-			});
-
-			TallyItems(e.NonCatDog, new string[]{
-
-			});
-
-			TallyItems(e.FavoriteMemory, new string[]{
-
-			});
-
-			TallyItems(e.CountryFlagPicture, new string[]{
-
-			});
-
-			TallyItems(e.MoreThanOneLanguage, new string[]{
 
 			});
 
@@ -81,23 +34,24 @@ namespace BingoScorer
 
 			});
 
-			TallyItems(e.StartedCompany, new string[]{
-
-			});
-
-			TallyItems(e.HairstyleTenYearsAgoPicture, new string[]{
-
-			});
-
-			TallyItems(e.PerformingMusic, new string[]{
-
-			});
-
-			TallyItems(e.HandmadePicture, new string[]{
-
-			});
-
 			TallyItems(e.BookPicture, new string[]{
+
+			});
+
+			// Heng's Categories
+			TallyItems(e.BreakfastPicture, new string[]{
+
+			});
+
+			TallyItems(e.NewTeamMember, new string[]{
+
+			});
+
+			TallyItems(e.NonCatDog, new string[]{
+
+			});
+
+			TallyItems(e.StartedCompany, new string[]{
 
 			});
 
@@ -105,12 +59,63 @@ namespace BingoScorer
 
 			});
 
+			// James's Categories
+			TallyItems(e.ColorfulLights, new string[]{
+
+			});
+
+			TallyItems(e.Pi20, new string[]{
+
+			});
+
+			TallyItems(e.FavoriteMemory, new string[]{
+
+			});
+
+			TallyItems(e.HairstyleTenYearsAgoPicture, new string[]{
+
+			});
+
 			TallyItems(e.BackwardsAlphabet, new string[]{
+
+			});
+
+			// Rachel's Categories
+			TallyItems(e.SameBirthday, new string[]{
+
+			});
+
+			TallyItems(e.WatchedFavoriteTVShow, new string[]{
+
+			});
+
+			TallyItems(e.CountryFlagPicture, new string[]{
+
+			});
+
+			TallyItems(e.PerformingMusic, new string[]{
 
 			});
 
 			TallyItems(e.FavoriteNerdyGeekyPastimePicture, new string[]{
 
+			});
+
+			// TJ's Categories
+			TallyItems(e.PlantPicture, new string[]{
+				maddyMontaquilaLeger, steveHawley
+			});
+
+			TallyItems(e.WallArtPicture, new string[]{
+
+			});
+
+			TallyItems(e.MoreThanOneLanguage, new string[]{
+
+			});
+
+			TallyItems(e.HandmadePicture, new string[]{
+				maddyMontaquilaLeger, steveHawley
 			});
 
 			TallyItems(e.FavoriteSnackPicture, new string[]{

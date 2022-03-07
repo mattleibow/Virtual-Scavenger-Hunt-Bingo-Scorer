@@ -16,5 +16,6 @@ namespace BingoScorer
 		public const string shaneNeuville = "Shane Neuville";
 		public const string steveHawley = "Steve Hawley";
 		public const string tjLambert = "TJ Lambert";
+		public const string maddyMontaquilaLeger = "Maddy Montaquila (Leger)";
 	}
 }
