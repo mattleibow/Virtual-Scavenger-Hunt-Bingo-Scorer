@@ -19,11 +19,11 @@ namespace BingoScorer
 		{
 			// Advay's Categories
 			TallyItems(e.CustomTeamsBackground, new string[]{
-
+				tjLambert, rachelKang, ruiMarinho, steveHawley
 			});
 
 			TallyItems(e.PublishedApp, new string[]{
-
+				ruiMarinho
 			});
 
 			TallyItems(e.UniqueItemPicture, new string[]{
@@ -31,11 +31,11 @@ namespace BingoScorer
 			});
 
 			TallyItems(e.PlayedFavoriteGame, new string[]{
-
+				maddyMontaquilaLeger, tjLambert
 			});
 
 			TallyItems(e.BookPicture, new string[]{
-
+				rachelKang, ruiMarinho
 			});
 
 			// Heng's Categories
