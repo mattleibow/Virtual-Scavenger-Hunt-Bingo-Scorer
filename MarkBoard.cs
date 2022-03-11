@@ -27,7 +27,7 @@ namespace BingoScorer
 			});
 
 			TallyItems(e.UniqueItemPicture, new string[]{
-
+				ruiMarinho, steveHawley
 			});
 
 			TallyItems(e.PlayedFavoriteGame, new string[]{
