@@ -111,7 +111,7 @@ namespace BingoScorer
 			});
 
 			TallyItems(e.MoreThanOneLanguage, new string[]{
-
+				tjLambert, steveHawley,
 			});
 
 			TallyItems(e.HandmadePicture, new string[]{
