@@ -61,19 +61,19 @@ namespace BingoScorer
 
 			// James's Categories
 			TallyItems(e.ColorfulLights, new string[]{
-
+				geraldVersluis, ruiMarinho, rachelKang
 			});
 
 			TallyItems(e.Pi20, new string[]{
-
+				ruiMarinho, steveHawley
 			});
 
 			TallyItems(e.FavoriteMemory, new string[]{
-
+				ruiMarinho
 			});
 
 			TallyItems(e.HairstyleTenYearsAgoPicture, new string[]{
-
+				davidOrtinau, maddyMontaquilaLeger, steveHawley, ruiMarinho
 			});
 
 			TallyItems(e.BackwardsAlphabet, new string[]{
