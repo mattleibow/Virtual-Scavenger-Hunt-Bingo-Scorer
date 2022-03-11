@@ -27,7 +27,7 @@ namespace BingoScorer
 			});
 
 			TallyItems(e.UniqueItemPicture, new string[]{
-
+				ruiMarinho, steveHawley
 			});
 
 			TallyItems(e.PlayedFavoriteGame, new string[]{
@@ -40,11 +40,11 @@ namespace BingoScorer
 
 			// Heng's Categories
 			TallyItems(e.BreakfastPicture, new string[]{
-
+				ruiMarinho
 			});
 
 			TallyItems(e.NewTeamMember, new string[]{
-
+				tjLambert, ruiMarinho
 			});
 
 			TallyItems(e.NonCatDog, new string[]{
@@ -52,11 +52,11 @@ namespace BingoScorer
 			});
 
 			TallyItems(e.StartedCompany, new string[]{
-
+				ruiMarinho, tjLambert
 			});
 
 			TallyItems(e.PublishedBookAcademicResearch, new string[]{
-
+				ruiMarinho, tjLambert
 			});
 
 			// James's Categories
@@ -82,11 +82,11 @@ namespace BingoScorer
 
 			// Rachel's Categories
 			TallyItems(e.SameBirthday, new string[]{
-
+				tjLambert, ruiMarinho
 			});
 
 			TallyItems(e.WatchedFavoriteTVShow, new string[]{
-
+				tjLambert
 			});
 
 			TallyItems(e.CountryFlagPicture, new string[]{
@@ -94,7 +94,7 @@ namespace BingoScorer
 			});
 
 			TallyItems(e.PerformingMusic, new string[]{
-
+				maddyMontaquilaLeger, steveHawley
 			});
 
 			TallyItems(e.FavoriteNerdyGeekyPastimePicture, new string[]{
