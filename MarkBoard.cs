@@ -40,11 +40,11 @@ namespace BingoScorer
 
 			// Heng's Categories
 			TallyItems(e.BreakfastPicture, new string[]{
-
+				ruiMarinho
 			});
 
 			TallyItems(e.NewTeamMember, new string[]{
-
+				tjLambert, ruiMarinho
 			});
 
 			TallyItems(e.NonCatDog, new string[]{
@@ -52,11 +52,11 @@ namespace BingoScorer
 			});
 
 			TallyItems(e.StartedCompany, new string[]{
-
+				ruiMarinho, tjLambert
 			});
 
 			TallyItems(e.PublishedBookAcademicResearch, new string[]{
-
+				ruiMarinho, tjLambert
 			});
 
 			// James's Categories
