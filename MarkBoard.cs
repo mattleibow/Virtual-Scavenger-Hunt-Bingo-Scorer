@@ -82,11 +82,11 @@ namespace BingoScorer
 
 			// Rachel's Categories
 			TallyItems(e.SameBirthday, new string[]{
-
+				tjLambert, ruiMarinho
 			});
 
 			TallyItems(e.WatchedFavoriteTVShow, new string[]{
-
+				tjLambert
 			});
 
 			TallyItems(e.CountryFlagPicture, new string[]{
@@ -94,7 +94,7 @@ namespace BingoScorer
 			});
 
 			TallyItems(e.PerformingMusic, new string[]{
-
+				maddyMontaquilaLeger, steveHawley
 			});
 
 			TallyItems(e.FavoriteNerdyGeekyPastimePicture, new string[]{
