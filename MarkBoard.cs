@@ -48,7 +48,7 @@ namespace BingoScorer
 			});
 
 			TallyItems(e.NonCatDog, new string[]{
-				ruiMarinho, ezHart
+				ruiMarinho
 			});
 
 			TallyItems(e.StartedCompany, new string[]{
