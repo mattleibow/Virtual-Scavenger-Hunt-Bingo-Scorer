@@ -19,23 +19,23 @@ namespace BingoScorer
 		{
 			// Advay's Categories
 			TallyItems(e.CustomTeamsBackground, new string[]{
-				tjLambert, rachelKang, ruiMarinho, steveHawley
+				tjLambert, rachelKang, ruiMarinho, steveHawley, jamesParsons, ezHart, geraldVersluis, thomasSparks
 			});
 
 			TallyItems(e.PublishedApp, new string[]{
-				ruiMarinho
+				ruiMarinho, tjLambert
 			});
 
 			TallyItems(e.UniqueItemPicture, new string[]{
-				ruiMarinho, steveHawley
+				ruiMarinho, steveHawley, andreiGrigorev, jamesParsons
 			});
 
 			TallyItems(e.PlayedFavoriteGame, new string[]{
-				maddyMontaquilaLeger, tjLambert
+				maddyMontaquilaLeger, tjLambert, steveHawley, rachelKang, shaneNeuville
 			});
 
 			TallyItems(e.BookPicture, new string[]{
-				rachelKang, ruiMarinho
+				rachelKang, ruiMarinho, jamesParsons, andreiGrigorev, maddyMontaquilaLeger, ezHart, samanthaHouts
 			});
 
 			// Heng's Categories
