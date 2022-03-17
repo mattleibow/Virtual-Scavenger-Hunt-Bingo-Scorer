@@ -103,23 +103,28 @@ namespace BingoScorer
 
 			// TJ's Categories
 			TallyItems(e.PlantPicture, new string[]{
-				maddyMontaquilaLeger, steveHawley
+				maddyMontaquilaLeger, steveHawley, jamesParsons, andreiGrigorev,
+				ezHart, rachelKang,
 			});
 
 			TallyItems(e.WallArtPicture, new string[]{
-
+				andreiGrigorev, steveHawley, ezHart,
+				jamesParsons,
+				// right after wednesday cutoff time - rachelKang
 			});
 
 			TallyItems(e.MoreThanOneLanguage, new string[]{
-				tjLambert, steveHawley,
+				tjLambert, steveHawley, ruiMarinho, jamesParsons,
+				ezHart,
 			});
 
 			TallyItems(e.HandmadePicture, new string[]{
-				maddyMontaquilaLeger, steveHawley
+				maddyMontaquilaLeger, steveHawley, jamesParsons,
+				andreiGrigorev
 			});
 
 			TallyItems(e.FavoriteSnackPicture, new string[]{
-
+				andreiGrigorev, jamesParsons, maddyMontaquilaLeger,
 			});
 		}
 
