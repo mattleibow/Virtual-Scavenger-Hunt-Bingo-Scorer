@@ -61,7 +61,7 @@ namespace BingoScorer
 
 			// James's Categories
 			TallyItems(e.ColorfulLights, new string[]{
-				geraldVersluis, ruiMarinho, rachelKang
+				geraldVersluis, ruiMarinho, rachelKang, shaneNeuville, jamesParsons
 			});
 
 			TallyItems(e.Pi20, new string[]{
@@ -69,15 +69,15 @@ namespace BingoScorer
 			});
 
 			TallyItems(e.FavoriteMemory, new string[]{
-				ruiMarinho
+				ruiMarinho, jamesParsons, steveHawley
 			});
 
 			TallyItems(e.HairstyleTenYearsAgoPicture, new string[]{
-				davidOrtinau, maddyMontaquilaLeger, steveHawley, ruiMarinho
+				davidOrtinau, maddyMontaquilaLeger, steveHawley, ruiMarinho, jamesParsons, andreiGrigorev, ezHart
 			});
 
 			TallyItems(e.BackwardsAlphabet, new string[]{
-
+				ruiMarinho
 			});
 
 			// Rachel's Categories
