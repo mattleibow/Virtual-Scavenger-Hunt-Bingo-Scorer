@@ -82,23 +82,23 @@ namespace BingoScorer
 
 			// Rachel's Categories
 			TallyItems(e.SameBirthday, new string[]{
-				tjLambert, ruiMarinho
+				tjLambert, ruiMarinho, geraldVersluis, steveHawley, jakeKirsch
 			});
 
 			TallyItems(e.WatchedFavoriteTVShow, new string[]{
-				tjLambert
+				tjLambert, ezHart, thomasSparks, jamesParsons
 			});
 
 			TallyItems(e.CountryFlagPicture, new string[]{
-
+				jamesParsons
 			});
 
 			TallyItems(e.PerformingMusic, new string[]{
-				maddyMontaquilaLeger, steveHawley
+				maddyMontaquilaLeger, steveHawley, andreiGrigorev
 			});
 
 			TallyItems(e.FavoriteNerdyGeekyPastimePicture, new string[]{
-
+				ruiMarinho, steveHawley
 			});
 
 			// TJ's Categories
