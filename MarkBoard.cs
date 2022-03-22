@@ -27,15 +27,15 @@ namespace BingoScorer
 			});
 
 			TallyItems(e.UniqueItemPicture, new string[]{
-				ruiMarinho, steveHawley, andreiGrigorev, jamesParsons
+				ruiMarinho, steveHawley, andreiGrigorev, jamesParsons, tjLambert
 			});
 
 			TallyItems(e.PlayedFavoriteGame, new string[]{
-				maddyMontaquilaLeger, tjLambert, steveHawley, rachelKang, shaneNeuville
+				maddyMontaquilaLeger, tjLambert, steveHawley, rachelKang, shaneNeuville, ruiMarinho
 			});
 
 			TallyItems(e.BookPicture, new string[]{
-				rachelKang, ruiMarinho, jamesParsons, andreiGrigorev, maddyMontaquilaLeger, ezHart, samanthaHouts
+				rachelKang, ruiMarinho, jamesParsons, andreiGrigorev, maddyMontaquilaLeger, ezHart, samanthaHouts, steveHawley, luisAguileraSteinert, geraldVersluis, tjLambert
 			});
 
 			// Heng's Categories
@@ -82,23 +82,23 @@ namespace BingoScorer
 
 			// Rachel's Categories
 			TallyItems(e.SameBirthday, new string[]{
-				tjLambert, ruiMarinho, geraldVersluis, steveHawley, jakeKirsch
+				tjLambert, ruiMarinho, geraldVersluis, steveHawley, rachelKang
 			});
 
 			TallyItems(e.WatchedFavoriteTVShow, new string[]{
-				tjLambert, ezHart, thomasSparks, jamesParsons
+				tjLambert, ezHart, thomasSparks, jamesParsons, rachelKang, steveHawley, samanthaHouts
 			});
 
 			TallyItems(e.CountryFlagPicture, new string[]{
-				jamesParsons
+				jamesParsons, geraldVersluis, rachelKang, steveHawley, ruiMarinho
 			});
 
 			TallyItems(e.PerformingMusic, new string[]{
-				maddyMontaquilaLeger, steveHawley, andreiGrigorev
+				maddyMontaquilaLeger, steveHawley, andreiGrigorev, lutzRoeder, tjLambert, ruiMarinho
 			});
 
 			TallyItems(e.FavoriteNerdyGeekyPastimePicture, new string[]{
-				ruiMarinho, steveHawley
+				ruiMarinho, steveHawley, rachelKang, tjLambert
 			});
 
 			// TJ's Categories
