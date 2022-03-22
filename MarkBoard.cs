@@ -65,11 +65,11 @@ namespace BingoScorer
 			});
 
 			TallyItems(e.Pi20, new string[]{
-				ruiMarinho, steveHawley
+				ruiMarinho, steveHawley, rachelKang
 			});
 
 			TallyItems(e.FavoriteMemory, new string[]{
-				ruiMarinho, jamesParsons, steveHawley
+				ruiMarinho, jamesParsons, steveHawley, tjLambert
 			});
 
 			TallyItems(e.HairstyleTenYearsAgoPicture, new string[]{
@@ -77,7 +77,7 @@ namespace BingoScorer
 			});
 
 			TallyItems(e.BackwardsAlphabet, new string[]{
-				ruiMarinho
+				ruiMarinho, tjLambert, rachelKang
 			});
 
 			// Rachel's Categories
