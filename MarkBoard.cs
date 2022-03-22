@@ -40,7 +40,7 @@ namespace BingoScorer
 
 			// Heng's Categories
 			TallyItems(e.BreakfastPicture, new string[]{
-				ruiMarinho, jamesParsons, hengLiu, tjLambert, steveHawley, rachelKang
+				ruiMarinho, jamesParsons, hengLiu, tjLambert, steveHawley, rachelKang, luisAguileraSteinert
 			});
 
 			TallyItems(e.NewTeamMember, new string[]{
@@ -48,11 +48,11 @@ namespace BingoScorer
 			});
 
 			TallyItems(e.NonCatDog, new string[]{
-				ruiMarinho
+				ruiMarinho, rachelKang
 			});
 
 			TallyItems(e.StartedCompany, new string[]{
-				ruiMarinho, tjLambert, lutzRoeder, rachelKang
+				ruiMarinho, tjLambert, lutzRoeder, rachelKang, luisAguileraSteinert
 			});
 
 			TallyItems(e.PublishedBookAcademicResearch, new string[]{
