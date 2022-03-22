@@ -120,7 +120,7 @@ namespace BingoScorer
 			TallyItems(e.HandmadePicture, new string[]{
 				maddyMontaquilaLeger, steveHawley, jamesParsons,
 				andreiGrigorev, luisAguileraSteinert, geraldVersluis,
-				rachelKang, ruiMarinho,
+				rachelKang, ruiMarinho, stephaneDelcroix,
 			});
 
 			TallyItems(e.FavoriteSnackPicture, new string[]{
