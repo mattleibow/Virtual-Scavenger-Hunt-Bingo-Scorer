@@ -104,13 +104,12 @@ namespace BingoScorer
 			// TJ's Categories
 			TallyItems(e.PlantPicture, new string[]{
 				maddyMontaquilaLeger, steveHawley, jamesParsons, andreiGrigorev,
-				ezHart, rachelKang,
+				ezHart, rachelKang, tjLambert, ruiMarinho,
 			});
 
 			TallyItems(e.WallArtPicture, new string[]{
 				andreiGrigorev, steveHawley, ezHart,
-				jamesParsons,
-				// right after wednesday cutoff time - rachelKang
+				jamesParsons, rachelKang, tjLambert, ruiMarinho
 			});
 
 			TallyItems(e.MoreThanOneLanguage, new string[]{
@@ -120,11 +119,13 @@ namespace BingoScorer
 
 			TallyItems(e.HandmadePicture, new string[]{
 				maddyMontaquilaLeger, steveHawley, jamesParsons,
-				andreiGrigorev
+				andreiGrigorev, luisAguileraSteinert, geraldVersluis,
+				rachelKang, ruiMarinho,
 			});
 
 			TallyItems(e.FavoriteSnackPicture, new string[]{
 				andreiGrigorev, jamesParsons, maddyMontaquilaLeger,
+				steveHawley, tjLambert, ruiMarinho,
 			});
 		}
 
