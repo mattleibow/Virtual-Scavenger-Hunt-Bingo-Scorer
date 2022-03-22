@@ -27,15 +27,15 @@ namespace BingoScorer
 			});
 
 			TallyItems(e.UniqueItemPicture, new string[]{
-				ruiMarinho, steveHawley, andreiGrigorev, jamesParsons
+				ruiMarinho, steveHawley, andreiGrigorev, jamesParsons, tjLambert
 			});
 
 			TallyItems(e.PlayedFavoriteGame, new string[]{
-				maddyMontaquilaLeger, tjLambert, steveHawley, rachelKang, shaneNeuville
+				maddyMontaquilaLeger, tjLambert, steveHawley, rachelKang, shaneNeuville, ruiMarinho
 			});
 
 			TallyItems(e.BookPicture, new string[]{
-				rachelKang, ruiMarinho, jamesParsons, andreiGrigorev, maddyMontaquilaLeger, ezHart, samanthaHouts
+				rachelKang, ruiMarinho, jamesParsons, andreiGrigorev, maddyMontaquilaLeger, ezHart, samanthaHouts, steveHawley, luisAguileraSteinert, geraldVersluis, tjLambert
 			});
 
 			// Heng's Categories
