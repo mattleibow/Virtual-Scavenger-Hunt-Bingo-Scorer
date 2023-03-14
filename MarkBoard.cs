@@ -1,6 +1,7 @@
 ﻿using System;
-using static BingoScorer.Participants;
 using System.Collections.Generic;
+using static BingoScorer.Participants;
+using static BingoScorer.BoadParts;
 
 namespace BingoScorer
 {
@@ -139,7 +140,7 @@ namespace BingoScorer
 					// if there is already a board with this name, add item
 					if (board.Name == name) {
 						foundBoard = true;
-						board.IncludeItem(item);
+						board.Squares[item] = true;
 						break;
 					}
 				}
@@ -148,44 +149,6 @@ namespace BingoScorer
 					Boards.Add(new BingoBoard(name, item));
 				}
 			}
-		}
-
-		public enum e
-		{
-			// Row 1
-			CustomTeamsBackground,
-			BreakfastPicture,
-			ColorfulLights,
-			SameBirthday,
-			PlantPicture,
-
-			// Row 2
-			PublishedApp,
-			NewTeamMember,
-			Pi20,
-			WatchedFavoriteTVShow,
-			WallArtPicture,
-
-			// Row 3
-			UniqueItemPicture,
-			NonCatDog,
-			FavoriteMemory,
-			CountryFlagPicture,
-			MoreThanOneLanguage,
-
-			// Row 4
-			PlayedFavoriteGame,
-			StartedCompany,
-			HairstyleTenYearsAgoPicture,
-			PerformingMusic,
-			HandmadePicture,
-
-			// Row5
-			BookPicture,
-			PublishedBookAcademicResearch,
-			BackwardsAlphabet,
-			FavoriteNerdyGeekyPastimePicture,
-			FavoriteSnackPicture,
 		}
 	}
 }
