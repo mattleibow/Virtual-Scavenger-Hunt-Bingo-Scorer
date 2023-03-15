@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Text;
 using static BingoScorer.MarkBoard;
+using static BingoScorer.BoadParts;
+using System.ComponentModel;
 
 namespace BingoScorer
 {
@@ -8,40 +10,8 @@ namespace BingoScorer
 	// as well as creating a drawing and log for the points that were assigned
 	public class BingoBoard
 	{
-		// Row 1
-		internal bool CustomTeamsBackground { get; set; }
-		internal bool BreakfastPicture { get; set; }
-		internal bool ColorfulLights { get; set; }
-		internal bool SameBirthday { get; set; }
-		internal bool PlantPicture { get; set; }
-
-		// Row 2
-		internal bool PublishedApp { get; set; }
-		internal bool NewTeamMember { get; set; }
-		internal bool Pi20 { get; set; }
-		internal bool WatchedFavoriteTVShow { get; set; }
-		internal bool WallArtPicture { get; set; }
-
-		// Row 3
-		internal bool UniqueItemPicture { get; set; }
-		internal bool NonCatDog { get; set; }
-		internal bool FavoriteMemory { get; set; } = true;
-		internal bool CountryFlagPicture { get; set; }
-		internal bool MoreThanOneLanguage { get; set; }
-
-		// Row 4
-		internal bool PlayedFavoriteGame { get; set; }
-		internal bool StartedCompany { get; set; }
-		internal bool HairstyleTenYearsAgoPicture { get; set; }
-		internal bool PerformingMusic { get; set; }
-		internal bool HandmadePicture { get; set; }
-
-		// Row 5
-		internal bool BookPicture { get; set; }
-		internal bool PublishedBookAcademicResearch { get; set; }
-		internal bool BackwardsAlphabet { get; set; }
-		internal bool FavoriteNerdyGeekyPastimePicture { get; set; }
-		internal bool FavoriteSnackPicture { get; set; }
+		public readonly Dictionary<e, bool> Squares =
+			Enum.GetValues<e>().ToDictionary(k => k, k => false);
 
 		public string Name { get; set; }
 		public float Score { get; set; }
@@ -52,37 +22,65 @@ namespace BingoScorer
 		{
 			Name = name;
 			foreach (var item in items) {
-				this.IncludeItem(item);
+				Squares[item] = true;
 			}
 		}
 
 		public void DrawBoard ()
 		{
 			StringBuilder sb = new StringBuilder ("-----------\n");
+
 			// Row 1
-			sb.Append($"|{Mark(CustomTeamsBackground)}|{Mark(BreakfastPicture)}|{Mark(ColorfulLights)}|{Mark(SameBirthday)}|{Mark(PlantPicture)}|\n");
+			sb.Append(
+				$"|{Mark(m.Row1 | m.Col1)}" +
+				$"|{Mark(m.Row1 | m.Col2)}" +
+				$"|{Mark(m.Row1 | m.Col3)}" +
+				$"|{Mark(m.Row1 | m.Col4)}" +
+				$"|{Mark(m.Row1 | m.Col5)}|\n");
 
 			// Row 2
-			sb.Append($"|{Mark(PublishedApp)}|{Mark(NewTeamMember)}|{Mark(Pi20)}|{Mark(WatchedFavoriteTVShow)}|{Mark(WallArtPicture)}|\n");
+			sb.Append(
+				$"|{Mark(m.Row2 | m.Col1)}" +
+				$"|{Mark(m.Row2 | m.Col2)}" +
+				$"|{Mark(m.Row2 | m.Col3)}" +
+				$"|{Mark(m.Row2 | m.Col4)}" +
+				$"|{Mark(m.Row2 | m.Col5)}|\n");
 
 			// Row 3
-			sb.Append($"|{Mark(UniqueItemPicture)}|{Mark(NonCatDog)}|{Mark(FavoriteMemory)}|{Mark(CountryFlagPicture)}|{Mark(MoreThanOneLanguage)}|\n");
+			sb.Append(
+				$"|{Mark(m.Row3 | m.Col1)}" +
+				$"|{Mark(m.Row3 | m.Col2)}" +
+				$"|{Mark(m.Row3 | m.Col3)}" +
+				$"|{Mark(m.Row3 | m.Col4)}" +
+				$"|{Mark(m.Row3 | m.Col5)}|\n");
 
 			// Row 4
-			sb.Append($"|{Mark(PlayedFavoriteGame)}|{Mark(StartedCompany)}|{Mark(HairstyleTenYearsAgoPicture)}|{Mark(PerformingMusic)}|{Mark(HandmadePicture)}|\n");
+			sb.Append(
+				$"|{Mark(m.Row4 | m.Col1)}" +
+				$"|{Mark(m.Row4 | m.Col2)}" +
+				$"|{Mark(m.Row4 | m.Col3)}" +
+				$"|{Mark(m.Row4 | m.Col4)}" +
+				$"|{Mark(m.Row4 | m.Col5)}|\n");
 
 			// Row 5
-			sb.Append($"|{Mark(BookPicture)}|{Mark(PublishedBookAcademicResearch)}|{Mark(BackwardsAlphabet)}|{Mark(FavoriteNerdyGeekyPastimePicture)}|{Mark(FavoriteSnackPicture)}|\n");
+			sb.Append(
+				$"|{Mark(m.Row5 | m.Col1)}" +
+				$"|{Mark(m.Row5 | m.Col2)}" +
+				$"|{Mark(m.Row5 | m.Col3)}" +
+				$"|{Mark(m.Row5 | m.Col4)}" +
+				$"|{Mark(m.Row5 | m.Col5)}|\n");
 
 			sb.Append("-----------\n");
 
 			Drawing = sb.ToString();
 		}
 
-		char Mark (bool val)
+		char Mark (m mask)
 		{
-			if (val)
-				return 'x';
+			foreach (var square in Squares) {
+				if (square.Key.HasFlag((e)(int)mask) && square.Value)
+					return 'x';
+			}
 			return '_';
 		}
 
@@ -92,345 +90,199 @@ namespace BingoScorer
 			if (Score != 0)
 				return;
 
-			CalculateShapes ();
+			CalculateFullBoard (1_000_000);
 
-			CalculateVerticalHorizontals ();
+			CalculateShapes (500);
 
-			AddEachSpace ();
+			CalculateVerticalHorizontals (50);
+
+			AddEachSpace (10);
 		}
 
-		void CalculateShapes ()
+		void CalculateFullBoard (int score)
 		{
-			if (IsFullBoard ()) {
-				Score += 1000000;
-				Log.AppendLine("FullBoard! +1,000,000 Points!!");
-			}
-
-			if (IsN ()) {
-				Score += 500;
-				Log.AppendLine("'N' +500 Points");
-			}
-
-			if (IsE ()) {
-				Score += 500;
-				Log.AppendLine("'E' +500 Points");
-			}
-
-			if (IsT ()) {
-				Score += 500;
-				Log.AppendLine("'T' +500 Points");
-			}
-
-			if (Is6 ()) {
-				Score += 500;
-				Log.AppendLine("'6' +500 Points");
+			if (Is (m.All)) {
+				Score += score;
+				Log.AppendLine($"Full Board! +{score} Points!!");
 			}
 		}
 
-		void CalculateVerticalHorizontals()
+		void CalculateShapes (int score)
 		{
-			if (IsVertical5()) {
-				Score += 50;
-				Log.AppendLine("Vertical 5 +50 Points");
-			}
+			var shapes = new [] {
+				m.Shape1,
+				m.Shape2,
+				m.Shape3,
+				m.Shape4,
+			};
 
-			if (IsVertical4()) {
-				Score += 50;
-				Log.AppendLine("Vertical 4 +50 Points");
-			}
-
-			if (IsVertical3()) {
-				Score += 50;
-				Log.AppendLine("Vertical 3 +50 Points");
-			}
-
-			if (IsVertical2()) {
-				Score += 50;
-				Log.AppendLine("Vertical 2 +50 Points");
-			}
-
-			if (IsVertical1()) {
-				Score += 50;
-				Log.AppendLine("Vertical 1 +50 Points");
-			}
-
-			if (IsHorizontal5()) {
-				Score += 50;
-				Log.AppendLine("Horizontal 5 +50 Points");
-			}
-
-			if (IsHorizontal4()) {
-				Score += 50;
-				Log.AppendLine("Horizontal 4 +50 Points");
-			}
-
-			if (IsHorizontal3()) {
-				Score += 50;
-				Log.AppendLine("Horizontal 3 +50 Points");
-			}
-
-			if (IsHorizontal2()) {
-				Score += 50;
-				Log.AppendLine("Horizontal 2 +50 Points");
-			}
-
-			if (IsHorizontal1()) {
-				Score += 50;
-				Log.AppendLine("Horizontal 1 +50 Points");
+			foreach (var shape in shapes) {
+				if (Is (shape)) {
+					Score += score;
+					Log.AppendLine($"'{Message(shape)}' +{score} Points");
+				}
 			}
 		}
 
-		void AddEachSpace()
+		void CalculateVerticalHorizontals(int score)
 		{
-			if (CustomTeamsBackground) {
-				Score += 10;
-				Log.AppendLine("Find someone who has a custom uploaded Teams background +10 Points");
+			var verticals = new [] {
+				m.Col1,
+				m.Col2,
+				m.Col3,
+				m.Col4,
+				m.Col5,
+			};
+
+			foreach (var shape in verticals) {
+				if (Is (shape)) {
+					Score += score;
+					Log.AppendLine($"{Message(shape)} +{score} Points");
+				}
 			}
-			if (BreakfastPicture) {
-				Score += 10;
-				Log.AppendLine("Share a picture of you with your breakfast from today +10 Points");
-			}
-			if (ColorfulLights) {
-				Score += 10;
-				Log.AppendLine("Find someone who has colorful lights in their workspace +10 Points");
-			}
-			if (SameBirthday) {
-				Score += 10;
-				Log.AppendLine("Find someone who shares the same birthday month as you +10 Points");
-			}
-			if (PlantPicture) {
-				Score += 10;
-				Log.AppendLine("Share a picture of you with any plants you grow +10 Points");
-			}
-			if (PublishedApp) {
-				Score += 10;
-				Log.AppendLine("Find someone who has published an app on any app store +10 Points");
-			}
-			if (NewTeamMember) {
-				Score += 10;
-				Log.AppendLine("Find someone who has been on their team (at the M1 level) for less than 1 year +10 Points");
-			}
-			if (Pi20) {
-				Score += 10;
-				Log.AppendLine("Find someone who can recite at least the first 20 digits of pi from memory +10 Points");
-			}
-			if (WatchedFavoriteTVShow) {
-				Score += 10;
-				Log.AppendLine("Find someone who has watched your favorite TV show +10 Points");
-			}
-			if (WallArtPicture) {
-				Score += 10;
-				Log.AppendLine("Share a picture of some wall art +10 Points");
-			}
-			if (UniqueItemPicture) {
-				Score += 10;
-				Log.AppendLine("Share a picture of you with a unique item you have at your house  +10 Points");
-			}
-			if (NonCatDog) {
-				Score += 10;
-				Log.AppendLine("Find Someone who has a pet that is not a dog or cat +10 Points");
-			}
-			if (FavoriteMemory) {
-				Score += 10;
-				Log.AppendLine("Share your favorite memory (in any form) +10 Points");
-			}
-			if (CountryFlagPicture) {
-				Score += 10;
-				Log.AppendLine("a picture of you with a physical object that has your country's flag on it +10 Points");
-			}
-			if (MoreThanOneLanguage) {
-				Score += 10;
-				Log.AppendLine("Find someone who knows more than one language +10 Points");
-			}
-			if (PlayedFavoriteGame) {
-				Score += 10;
-				Log.AppendLine("Find someone who has played your favorite game +10 Points");
-			}
-			if (StartedCompany) {
-				Score += 10;
-				Log.AppendLine("Find someone who once started their own company +10 Points");
-			}
-			if (HairstyleTenYearsAgoPicture) {
-				Score += 10;
-				Log.AppendLine("Share a picture of you featuring your hairstyle from at least 10 years ago +10 Points");
-			}
-			if (PerformingMusic) {
-				Score += 10;
-				Log.AppendLine("Share a recent video of you performing music (at least 10 seconds) +10 Points");
-			}
-			if (HandmadePicture) {
-				Score += 10;
-				Log.AppendLine("Share a picture of you with something you handmade (i.e. painted, constructed, 3D-printed) +10 Points");
-			}
-			if (BookPicture) {
-				Score += 10;
-				Log.AppendLine("Share a picture of you with a book that you are reading or plan to read +10 Points");
-			}
-			if (PublishedBookAcademicResearch) {
-				Score += 10;
-				Log.AppendLine("Find someone who has published a book / academic research +10 Points");
-			}
-			if (BackwardsAlphabet) {
-				Score += 10;
-				Log.AppendLine("Find someone who can perfectly recite the alphabet backwards (any language, <15s) +10 Points");
-			}
-			if (FavoriteNerdyGeekyPastimePicture) {
-				Score += 10;
-				Log.AppendLine("Share a picture of you with your favorite nerdy/geeky pastime +10 Points");
-			}
-			if (FavoriteSnackPicture) {
-				Score += 10;
-				Log.AppendLine("Share a picture of you with your favorite snack +10 Points");
+
+			var horizontals = new [] {
+				m.Row1,
+				m.Row2,
+				m.Row3,
+				m.Row4,
+				m.Row5,
+			};
+
+			foreach (var shape in horizontals) {
+				if (Is (shape)) {
+					Score += score;
+					Log.AppendLine($"{Message(shape)} +{score} Points");
+				}
 			}
 		}
 
-		bool IsVertical1 () => CustomTeamsBackground && PublishedApp && UniqueItemPicture
-				&& PlayedFavoriteGame && BookPicture;
+		void AddEachSpace(int score)
+		{
+			foreach (var square in Enum.GetValues<e>()) {
+				if (Squares[square]) {
+					Score += score;
+					Log.AppendLine($"{Message(square)} +{score} Points");
+				}
+			}
+		}
 
-		bool IsVertical2 () => BreakfastPicture && NewTeamMember && NonCatDog
-				&& StartedCompany && PublishedBookAcademicResearch;
+		bool Is (m mask) =>
+			Squares.Where(p => p.Key.HasFlag((e)(int)mask)).All(p => p.Value == true);
 
-		bool IsVertical3 () => ColorfulLights && Pi20
-				&& HairstyleTenYearsAgoPicture && BackwardsAlphabet;
-
-		bool IsVertical4 () => SameBirthday && WatchedFavoriteTVShow && CountryFlagPicture
-				&& PerformingMusic && FavoriteNerdyGeekyPastimePicture;
-
-		bool IsVertical5 () => PlantPicture && WallArtPicture && MoreThanOneLanguage
-				&& HandmadePicture && FavoriteSnackPicture;
-
-		bool IsHorizontal1 () => CustomTeamsBackground && BreakfastPicture && ColorfulLights
-				&& SameBirthday && PlantPicture;
-
-		bool IsHorizontal2 () => PublishedApp && NewTeamMember && Pi20
-				&& WatchedFavoriteTVShow && WallArtPicture;
-
-		bool IsHorizontal3 () => UniqueItemPicture && NonCatDog
-				&& CountryFlagPicture && MoreThanOneLanguage;
-
-		bool IsHorizontal4 () => PlayedFavoriteGame && StartedCompany
-				&& HairstyleTenYearsAgoPicture && PerformingMusic && HandmadePicture;
-
-		bool IsHorizontal5 () => BookPicture && PublishedBookAcademicResearch
-				&& BackwardsAlphabet && FavoriteNerdyGeekyPastimePicture && FavoriteSnackPicture;
-
-		bool IsDownhillDiagonal () => CustomTeamsBackground && NewTeamMember && FavoriteMemory
-			&& PerformingMusic && FavoriteSnackPicture;
-
-		bool IsN () => IsVertical1 () && IsDownhillDiagonal () && IsVertical5 ();
-
-		bool IsE () => IsHorizontal1 () && IsHorizontal3 () && IsHorizontal5 () && IsVertical1 ();
-
-		bool IsT () => IsHorizontal1 () && IsVertical3 ();
-
-		bool Is6 () => IsHorizontal1 () && IsHorizontal3 () && IsHorizontal5 () && IsVertical1 ()
-			&& HandmadePicture;
-
-		bool IsFullBoard () => IsHorizontal1 () && IsHorizontal2 () &&
-				IsHorizontal3 () && IsHorizontal4 () && IsHorizontal5 ();
+		string Message<T>(T item)
+		{
+			var type = typeof(T);
+			var memInfo = type.GetMember(item.ToString());
+			var attributes = memInfo[0].GetCustomAttributes(typeof(DescriptionAttribute), false);
+			return (attributes.Length > 0)
+				? ((DescriptionAttribute)attributes[0]).Description
+				: item.ToString();
+		}
 	}
 
-	public static class BingoBoardExtensions
+	public static class BoadParts
 	{
-		public static void IncludeItem(this BingoBoard board, e item)
+		public enum m
 		{
-			switch (item) {
-				case e.CustomTeamsBackground:
-					board.CustomTeamsBackground = true;
-					break;
+			All  = 0,
 
-				case e.BreakfastPicture:
-					board.BreakfastPicture = true;
-					break;
+			// lines (rows or columns)
+			[Description("Horizontal 1")]
+			Row1    = 1 << 0,
+			[Description("Horizontal 2")]
+			Row2    = 1 << 1,
+			[Description("Horizontal 3")]
+			Row3    = 1 << 2,
+			[Description("Horizontal 4")]
+			Row4    = 1 << 3,
+			[Description("Horizontal 5")]
+			Row5    = 1 << 4,
 
-				case e.ColorfulLights:
-					board.ColorfulLights = true;
-					break;
+			// type
+			[Description("Vertical 1")]
+			Col1      = 1 << 5,
+			[Description("Vertical 2")]
+			Col2      = 1 << 6,
+			[Description("Vertical 3")]
+			Col3      = 1 << 7,
+			[Description("Vertical 4")]
+			Col4      = 1 << 8,
+			[Description("Vertical 5")]
+			Col5      = 1 << 9,
 
-				case e.SameBirthday:
-					board.SameBirthday = true;
-					break;
+			// Shape2
+			[Description("V")]
+			Shape1   = 1 << 10,
+			[Description("S")]
+			Shape2   = 1 << 11,
+			[Description("C")]
+			Shape3   = 1 << 12,
+			[Description("X")]
+			Shape4   = 1 << 13,
+		}
 
-				case e.PlantPicture:
-					board.PlantPicture = true;
-					break;
+		public enum e
+		{
+			// Row 1
+			[Description("Find someone who has a custom uploaded Teams background")]
+			CustomTeamsBackground = m.Row1 | m.Col1 | m.Shape1 | m.Shape4,
+			[Description("Share a picture of you with your breakfast from today")]
+			BreakfastPicture = m.Row1 | m.Col2 | m.Shape2 | m.Shape3,
+			[Description("Find someone who has colorful lights in their workspace")]
+			ColorfulLights = m.Row1 | m.Col3 | m.Shape2 | m.Shape3,
+			[Description("Find someone who shares the same birthday month as you")]
+			SameBirthday = m.Row1 | m.Col4 | m.Shape2 | m.Shape3,
+			[Description("Share a picture of you with any plants you grow")]
+			PlantPicture = m.Row1 | m.Col5 | m.Shape1 | m.Shape4,
 
-				case e.PublishedApp:
-					board.PublishedApp = true;
-					break;
+			// Row 2
+			[Description("Find someone who has published an app on any app store")]
+			PublishedApp = m.Row2 | m.Col1 | m.Shape1 | m.Shape3,
+			[Description("Find someone who has been on their team (at the M1 level) for less than 1 year")]
+			NewTeamMember = m.Row2 | m.Col2 | m.Shape2 | m.Shape4,
+			[Description("Find someone who can recite at least the first 20 digits of pi from memory")]
+			Pi20 = m.Row2 | m.Col3,
+			[Description("Find someone who has watched your favorite TV show")]
+			WatchedFavoriteTVShow = m.Row2 | m.Col4 | m.Shape4,
+			[Description("Share a picture of some wall art")]
+			WallArtPicture = m.Row2 | m.Col5 | m.Shape1,
 
-				case e.NewTeamMember:
-					board.NewTeamMember = true;
-					break;
+			// Row 3
+			[Description("Share a picture of you with a unique item you have at your house ")]
+			UniqueItemPicture = m.Row3 | m.Col1 | m.Shape3,
+			[Description("Find Someone who has a pet that is not a dog or cat")]
+			NonCatDog = m.Row3 | m.Col2 | m.Shape1 | m.Shape2,
+			[Description("Share your favorite memory (in any form)")]
+			FavoriteMemory = m.Row3 | m.Col3 | m.Shape2 | m.Shape4,
+			[Description("a picture of you with a physical object that has your country's flag on it")]
+			CountryFlagPicture = m.Row3 | m.Col4 | m.Shape1 | m.Shape2,
+			[Description("Find someone who knows more than one language")]
+			MoreThanOneLanguage = m.Row3 | m.Col5,
 
-				case e.Pi20:
-					board.Pi20 = true;
-					break;
+			// Row 4
+			[Description("Find someone who has played your favorite game")]
+			PlayedFavoriteGame = m.Row4 | m.Col1 | m.Shape3,
+			[Description("Find someone who once started their own company")]
+			StartedCompany = m.Row4 | m.Col2 | m.Shape1 | m.Shape4,
+			[Description("Share a picture of you featuring your hairstyle from at least 10 years ago")]
+			HairstyleTenYearsAgoPicture = m.Row4 | m.Col3,
+			[Description("Share a recent video of you performing music (at least 10 seconds)")]
+			PerformingMusic = m.Row4 | m.Col4 | m.Shape1 | m.Shape2 | m.Shape4,
+			[Description("Share a picture of you with something you handmade (i.e. painted, constructed, 3D-printed)")]
+			HandmadePicture = m.Row4 | m.Col5,
 
-				case e.WatchedFavoriteTVShow:
-					board.WatchedFavoriteTVShow = true;
-					break;
-
-				case e.WallArtPicture:
-					board.WallArtPicture = true;
-					break;
-
-				case e.UniqueItemPicture:
-					board.UniqueItemPicture = true;
-					break;
-
-				case e.NonCatDog:
-					board.NonCatDog = true;
-					break;
-
-				case e.CountryFlagPicture:
-					board.CountryFlagPicture = true;
-					break;
-
-				case e.MoreThanOneLanguage:
-					board.MoreThanOneLanguage = true;
-					break;
-
-				case e.PlayedFavoriteGame:
-					board.PlayedFavoriteGame = true;
-					break;
-
-				case e.StartedCompany:
-					board.StartedCompany = true;
-					break;
-
-				case e.HairstyleTenYearsAgoPicture:
-					board.HairstyleTenYearsAgoPicture = true;
-					break;
-
-				case e.PerformingMusic:
-					board.PerformingMusic = true;
-					break;
-
-				case e.HandmadePicture:
-					board.HandmadePicture = true;
-					break;
-
-				case e.BookPicture:
-					board.BookPicture = true;
-					break;
-
-				case e.PublishedBookAcademicResearch:
-					board.PublishedBookAcademicResearch = true;
-					break;
-
-				case e.BackwardsAlphabet:
-					board.BackwardsAlphabet = true;
-					break;
-
-				case e.FavoriteNerdyGeekyPastimePicture:
-					board.FavoriteNerdyGeekyPastimePicture = true;
-					break;
-
-				case e.FavoriteSnackPicture:
-					board.FavoriteSnackPicture = true;
-					break;
-			}
+			// Row5
+			[Description("Share a picture of you with a book that you are reading or plan to read")]
+			BookPicture = m.Row5 | m.Col1 | m.Shape4,
+			[Description("Find someone who has published a book / academic research")]
+			PublishedBookAcademicResearch = m.Row5 | m.Col2 | m.Shape2 | m.Shape3,
+			[Description("Find someone who can perfectly recite the alphabet backwards (any language, <15s)")]
+			BackwardsAlphabet = m.Row5 | m.Col3 | m.Shape1 | m.Shape2 | m.Shape3,
+			[Description("Share a picture of you with your favorite nerdy/geeky pastime")]
+			FavoriteNerdyGeekyPastimePicture = m.Row5 | m.Col4 | m.Shape2 | m.Shape3,
+			[Description("Share a picture of you with your favorite snack")]
+			FavoriteSnackPicture = m.Row5 | m.Col5 | m.Shape4,
 		}
 	}
 }

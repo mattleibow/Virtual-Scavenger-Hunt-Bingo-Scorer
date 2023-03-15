@@ -25,9 +25,9 @@ namespace BingoScorer
 
 			// Write the scores to 2 text files - Running this in visual studio - Debug will place
 			// these files in this same directory
-			await WriteToFile(awards.GetNumberPlaces(), "../../../NumberPlaces.txt");
-			await WriteToFile(awards.GetDetailedReport(), "../../../DetailedReport.txt");
-			await WriteToFile(awards.GetPlaces(), "../../../Places.txt");
+			await WriteToFile(awards.GetNumberPlaces(), "NumberPlaces.txt");
+			await WriteToFile(awards.GetDetailedReport(), "DetailedReport.txt");
+			await WriteToFile(awards.GetPlaces(), "Places.txt");
 		}
 
 		static async Task WriteToFile(string content, string outputPath)
