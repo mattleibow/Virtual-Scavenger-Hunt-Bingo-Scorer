@@ -26,3 +26,9 @@ jobs:
       run: dotnet build --no-restore
     - name: Run
       run: dotnet run --no-build --verbosity normal
+    - name: Print NumberPlaces.txt
+      run: cat NumberPlaces.txt
+    - name: Print Places.txt
+      run: cat Places.txt
+    - name: Print DetailedReport.txt
+      run: cat DetailedReport.txt
