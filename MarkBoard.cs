@@ -19,114 +19,83 @@ namespace BingoScorer
 		static void TallyAllItems()
 		{
 			// Advay's Categories
-			TallyItems(e.CustomTeamsBackground, new string[]{
-				tjLambert, rachelKang, ruiMarinho, steveHawley, jamesParsons, ezHart, geraldVersluis, thomasSparks
+			TallyItems(e.Q1_FavoriteHobby, new string[]{
 			});
 
-			TallyItems(e.PublishedApp, new string[]{
-				ruiMarinho, tjLambert
+			TallyItems(e.Q2_EplainYourJobToA5YearOld, new string[]{
 			});
 
-			TallyItems(e.UniqueItemPicture, new string[]{
-				ruiMarinho, steveHawley, andreiGrigorev, jamesParsons, tjLambert
+			TallyItems(e.Q3_BeenTo3Continents, new string[]{
 			});
 
-			TallyItems(e.PlayedFavoriteGame, new string[]{
-				maddyMontaquilaLeger, tjLambert, steveHawley, rachelKang, shaneNeuville, ruiMarinho
+			TallyItems(e.Q4_ExercisesRegularly, new string[]{
 			});
 
-			TallyItems(e.BookPicture, new string[]{
-				rachelKang, ruiMarinho, jamesParsons, andreiGrigorev, maddyMontaquilaLeger, ezHart, samanthaHouts, steveHawley, luisAguileraSteinert, geraldVersluis, tjLambert
+			TallyItems(e.Q5_FirstJob, new string[]{
 			});
 
 			// Heng's Categories
-			TallyItems(e.BreakfastPicture, new string[]{
-				ruiMarinho, jamesParsons, hengLiu, tjLambert, steveHawley, rachelKang, luisAguileraSteinert
+			TallyItems(e.Q6_GrowFood, new string[]{
 			});
 
-			TallyItems(e.NewTeamMember, new string[]{
-				tjLambert, ruiMarinho, jamesParsons
+			TallyItems(e.Q7_NewThinYouWantToTry, new string[]{
 			});
 
-			TallyItems(e.NonCatDog, new string[]{
-				ruiMarinho, rachelKang
+			TallyItems(e.Q8_KnowsASL, new string[]{
 			});
 
-			TallyItems(e.StartedCompany, new string[]{
-				ruiMarinho, tjLambert, lutzRoeder, rachelKang, luisAguileraSteinert
+			TallyItems(e.Q9_FavoriteRecipe, new string[]{
 			});
 
-			TallyItems(e.PublishedBookAcademicResearch, new string[]{
-				ruiMarinho, tjLambert, rachelKang, geraldVersluis
+			TallyItems(e.Q10_NonCSDegree, new string[]{
 			});
 
-			// James's Categories
-			TallyItems(e.ColorfulLights, new string[]{
-				geraldVersluis, ruiMarinho, rachelKang, shaneNeuville, jamesParsons
+			// Kunyi's Categories
+			TallyItems(e.Q11_SideHustle, new string[]{
 			});
 
-			TallyItems(e.Pi20, new string[]{
-				ruiMarinho, steveHawley, rachelKang
+			TallyItems(e.Q12_MemorableDream, new string[]{
 			});
 
-			TallyItems(e.FavoriteMemory, new string[]{
-				ruiMarinho, jamesParsons, steveHawley, tjLambert
+			TallyItems(e.Q13_TeamsEmojis, new string[]{
 			});
 
-			TallyItems(e.HairstyleTenYearsAgoPicture, new string[]{
-				davidOrtinau, maddyMontaquilaLeger, steveHawley, ruiMarinho, jamesParsons, andreiGrigorev, ezHart
+			TallyItems(e.Q14_OldestItem, new string[]{
 			});
 
-			TallyItems(e.BackwardsAlphabet, new string[]{
-				ruiMarinho, tjLambert, rachelKang
+			TallyItems(e.Q15_MBTIBuddy, new string[]{
 			});
 
-			// Rachel's Categories
-			TallyItems(e.SameBirthday, new string[]{
-				tjLambert, ruiMarinho, geraldVersluis, steveHawley, rachelKang
+			// Matthew's Categories
+			TallyItems(e.Q16_WorkshopTeacher, new string[]{
 			});
 
-			TallyItems(e.WatchedFavoriteTVShow, new string[]{
-				tjLambert, ezHart, thomasSparks, jamesParsons, rachelKang, steveHawley, samanthaHouts
+			TallyItems(e.Q17_UselessTalen, new string[]{
 			});
 
-			TallyItems(e.CountryFlagPicture, new string[]{
-				jamesParsons, geraldVersluis, rachelKang, steveHawley, ruiMarinho
+			TallyItems(e.Q18_TVFamous, new string[]{
 			});
 
-			TallyItems(e.PerformingMusic, new string[]{
-				maddyMontaquilaLeger, steveHawley, andreiGrigorev, lutzRoeder, tjLambert, ruiMarinho
+			TallyItems(e.Q19_FavoriteSpot, new string[]{
 			});
 
-			TallyItems(e.FavoriteNerdyGeekyPastimePicture, new string[]{
-				ruiMarinho, steveHawley, rachelKang, tjLambert
+			TallyItems(e.Q20_CPRCertified, new string[]{
 			});
 
 			// TJ's Categories
-			TallyItems(e.PlantPicture, new string[]{
-				maddyMontaquilaLeger, steveHawley, jamesParsons, andreiGrigorev,
-				ezHart, rachelKang, tjLambert, ruiMarinho,
+			TallyItems(e.Q21_FreezeSomething, new string[]{
 			});
 
-			TallyItems(e.WallArtPicture, new string[]{
-				andreiGrigorev, steveHawley, ezHart,
-				jamesParsons, rachelKang, tjLambert, ruiMarinho
+			TallyItems(e.Q22_GuiltyPleasure, new string[]{
 			});
 
-			TallyItems(e.MoreThanOneLanguage, new string[]{
-				tjLambert, steveHawley, ruiMarinho, jamesParsons,
-				ezHart,
+			TallyItems(e.Q23_PetPictures, new string[]{
 			});
 
-			TallyItems(e.HandmadePicture, new string[]{
-				maddyMontaquilaLeger, steveHawley, jamesParsons,
-				andreiGrigorev, luisAguileraSteinert, geraldVersluis,
-				rachelKang, ruiMarinho, stephaneDelcroix,
+			TallyItems(e.Q24_SomethingYouMade, new string[]{
 			});
 
-			TallyItems(e.FavoriteSnackPicture, new string[]{
-				andreiGrigorev, jamesParsons, maddyMontaquilaLeger,
-				steveHawley, tjLambert, ruiMarinho,
+			TallyItems(e.Q25_Speaks3PlusLanguaged, new string[]{
 			});
 		}
 

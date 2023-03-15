@@ -159,10 +159,13 @@ namespace BingoScorer
 
 		void AddEachSpace(int score)
 		{
-			foreach (var square in Enum.GetValues<e>()) {
-				if (Squares[square]) {
+			var items = Enum.GetValues<e>()
+				.Select(v => (Value: v, Name: Enum.GetName<e>(v)))
+				.OrderBy(t => int.Parse(t.Name.Split('Q', '_')[1]));
+			foreach (var item  in items) {
+				if (Squares[item.Value]) {
 					Score += score;
-					Log.AppendLine($"{Message(square)} +{score} Points");
+					Log.AppendLine($"{Message(item.Value)} +{score} Points");
 				}
 			}
 		}
@@ -225,64 +228,64 @@ namespace BingoScorer
 		public enum e
 		{
 			// Row 1
-			[Description("Find someone who has a custom uploaded Teams background")]
-			CustomTeamsBackground = m.Row1 | m.Col1 | m.Shape1 | m.Shape4,
-			[Description("Share a picture of you with your breakfast from today")]
-			BreakfastPicture = m.Row1 | m.Col2 | m.Shape2 | m.Shape3,
-			[Description("Find someone who has colorful lights in their workspace")]
-			ColorfulLights = m.Row1 | m.Col3 | m.Shape2 | m.Shape3,
-			[Description("Find someone who shares the same birthday month as you")]
-			SameBirthday = m.Row1 | m.Col4 | m.Shape2 | m.Shape3,
-			[Description("Share a picture of you with any plants you grow")]
-			PlantPicture = m.Row1 | m.Col5 | m.Shape1 | m.Shape4,
+			[Description("Share: Favorite hobby or pastime outside of work (proof: any)")]
+			Q1_FavoriteHobby = m.Row1 | m.Col1 | m.Shape1 | m.Shape4,
+			[Description("Share: What you are currently working on - explain it to a 5 year old (proof: any)")]
+			Q2_EplainYourJobToA5YearOld = m.Row1 | m.Col2 | m.Shape2 | m.Shape3,
+			[Description("Find: Someone who has been to 3+ continents (proof: pictures)")]
+			Q3_BeenTo3Continents = m.Row1 | m.Col3 | m.Shape2 | m.Shape3,
+			[Description("Find: Someone who exercises every week (proof: any)")]
+			Q4_ExercisesRegularly = m.Row1 | m.Col4 | m.Shape2 | m.Shape3,
+			[Description("Share: First ever job (proof: any)")]
+			Q5_FirstJob = m.Row1 | m.Col5 | m.Shape1 | m.Shape4,
 
 			// Row 2
-			[Description("Find someone who has published an app on any app store")]
-			PublishedApp = m.Row2 | m.Col1 | m.Shape1 | m.Shape3,
-			[Description("Find someone who has been on their team (at the M1 level) for less than 1 year")]
-			NewTeamMember = m.Row2 | m.Col2 | m.Shape2 | m.Shape4,
-			[Description("Find someone who can recite at least the first 20 digits of pi from memory")]
-			Pi20 = m.Row2 | m.Col3,
-			[Description("Find someone who has watched your favorite TV show")]
-			WatchedFavoriteTVShow = m.Row2 | m.Col4 | m.Shape4,
-			[Description("Share a picture of some wall art")]
-			WallArtPicture = m.Row2 | m.Col5 | m.Shape1,
+			[Description("Find: Someone who has grown their own food (proof: picture) ")]
+			Q6_GrowFood = m.Row2 | m.Col1 | m.Shape1 | m.Shape3,
+			[Description("Share: Something new you've always wanted to try (proof: any)")]
+			Q7_NewThinYouWantToTry = m.Row2 | m.Col2 | m.Shape2 | m.Shape4,
+			[Description("Find: Someone who knows ASL (proof: video) ")]
+			Q8_KnowsASL = m.Row2 | m.Col3,
+			[Description("Share: Your favorite recipe (proof: any)")]
+			Q9_FavoriteRecipe = m.Row2 | m.Col4 | m.Shape4,
+			[Description("Find: Someone who has a degree in a non-CS or Computer Engineering field (proof: any) ")]
+			Q10_NonCSDegree = m.Row2 | m.Col5 | m.Shape1,
 
 			// Row 3
-			[Description("Share a picture of you with a unique item you have at your house ")]
-			UniqueItemPicture = m.Row3 | m.Col1 | m.Shape3,
-			[Description("Find Someone who has a pet that is not a dog or cat")]
-			NonCatDog = m.Row3 | m.Col2 | m.Shape1 | m.Shape2,
-			[Description("Share your favorite memory (in any form)")]
-			FavoriteMemory = m.Row3 | m.Col3 | m.Shape2 | m.Shape4,
-			[Description("a picture of you with a physical object that has your country's flag on it")]
-			CountryFlagPicture = m.Row3 | m.Col4 | m.Shape1 | m.Shape2,
-			[Description("Find someone who knows more than one language")]
-			MoreThanOneLanguage = m.Row3 | m.Col5,
+			[Description("Find: Someone who has a side hustle/started a business (proof: any) ")]
+			Q11_SideHustle = m.Row3 | m.Col1 | m.Shape3,
+			[Description("Share: a typical nightmare / most memorable or impressive dream (proof: any)")]
+			Q12_MemorableDream = m.Row3 | m.Col2 | m.Shape1 | m.Shape2,
+			[Description("Share: 5 most recently used Teams emojis (proof: any)")]
+			Q13_TeamsEmojis = m.Row3 | m.Col3 | m.Shape2 | m.Shape4,
+			[Description("Share: the oldest thing you own (proof: picture)")]
+			Q14_OldestItem = m.Row3 | m.Col4 | m.Shape1 | m.Shape2,
+			[Description("Find: someone who has the same MBTI as you, take the test here (proof: screenshot of results)")]
+			Q15_MBTIBuddy = m.Row3 | m.Col5,
 
 			// Row 4
-			[Description("Find someone who has played your favorite game")]
-			PlayedFavoriteGame = m.Row4 | m.Col1 | m.Shape3,
-			[Description("Find someone who once started their own company")]
-			StartedCompany = m.Row4 | m.Col2 | m.Shape1 | m.Shape4,
-			[Description("Share a picture of you featuring your hairstyle from at least 10 years ago")]
-			HairstyleTenYearsAgoPicture = m.Row4 | m.Col3,
-			[Description("Share a recent video of you performing music (at least 10 seconds)")]
-			PerformingMusic = m.Row4 | m.Col4 | m.Shape1 | m.Shape2 | m.Shape4,
-			[Description("Share a picture of you with something you handmade (i.e. painted, constructed, 3D-printed)")]
-			HandmadePicture = m.Row4 | m.Col5,
+			[Description("Find: Someone who has taught a class/workshop/bootcamp (proof: any) ")]
+			Q16_WorkshopTeacher = m.Row4 | m.Col1 | m.Shape3,
+			[Description("Share: Your most useless talent (proof: any)")]
+			Q17_UselessTalen = m.Row4 | m.Col2 | m.Shape1 | m.Shape4,
+			[Description("Find: Someone who has been on TV or the news (proof: any)")]
+			Q18_TVFamous = m.Row4 | m.Col3,
+			[Description("Share: Your favorite local spot   restaurant, hiking spot, etc. (proof: picture)")]
+			Q19_FavoriteSpot = m.Row4 | m.Col4 | m.Shape1 | m.Shape2 | m.Shape4,
+			[Description("Find: Someone who is CPR certified (proof: any)")]
+			Q20_CPRCertified = m.Row4 | m.Col5,
 
 			// Row5
-			[Description("Share a picture of you with a book that you are reading or plan to read")]
-			BookPicture = m.Row5 | m.Col1 | m.Shape4,
-			[Description("Find someone who has published a book / academic research")]
-			PublishedBookAcademicResearch = m.Row5 | m.Col2 | m.Shape2 | m.Shape3,
-			[Description("Find someone who can perfectly recite the alphabet backwards (any language, <15s)")]
-			BackwardsAlphabet = m.Row5 | m.Col3 | m.Shape1 | m.Shape2 | m.Shape3,
-			[Description("Share a picture of you with your favorite nerdy/geeky pastime")]
-			FavoriteNerdyGeekyPastimePicture = m.Row5 | m.Col4 | m.Shape2 | m.Shape3,
-			[Description("Share a picture of you with your favorite snack")]
-			FavoriteSnackPicture = m.Row5 | m.Col5 | m.Shape4,
+			[Description("Share: Freeze something that shouldn't be frozen and provide a picture (Proof: picture)")]
+			Q21_FreezeSomething = m.Row5 | m.Col1 | m.Shape4,
+			[Description("Share: Your guilty pleasure show/movie/video you love to watch (Proof: Any)")]
+			Q22_GuiltyPleasure = m.Row5 | m.Col2 | m.Shape2 | m.Shape3,
+			[Description("Share: Pet pictures / what animal you would want as a pet (Proof: picture)")]
+			Q23_PetPictures = m.Row5 | m.Col3 | m.Shape1 | m.Shape2 | m.Shape3,
+			[Description("Find: Someone who made something they use - clay, knitting, furniture, etc. (Proof: picture)")]
+			Q24_SomethingYouMade = m.Row5 | m.Col4 | m.Shape2 | m.Shape3,
+			[Description("Find: Someone who speaks 3 or more languages (Proof: video)")]
+			Q25_Speaks3PlusLanguaged = m.Row5 | m.Col5 | m.Shape4,
 		}
 	}
 }
