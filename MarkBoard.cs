@@ -35,6 +35,7 @@ namespace BingoScorer
 			TallyItems(e.Q5_FirstJob, new string[]{
 			});
 
+
 			// Heng's Categories
 			TallyItems(e.Q6_GrowFood, new string[]{
 			});
@@ -53,6 +54,7 @@ namespace BingoScorer
 				rachelKang, davidOrtinau,
 			});
 
+
 			// Kunyi's Categories
 			TallyItems(e.Q11_SideHustle, new string[]{
 			});
@@ -69,6 +71,7 @@ namespace BingoScorer
 
 			TallyItems(e.Q15_MBTIBuddy, new string[]{
 			});
+
 
 			// Matthew's Categories
 			TallyItems(e.Q16_WorkshopTeacher, new string[]{
@@ -88,6 +91,7 @@ namespace BingoScorer
 
 			TallyItems(e.Q20_CPRCertified, new string[]{
 			});
+
 
 			// TJ's Categories
 			TallyItems(e.Q21_FreezeSomething, new string[]{
