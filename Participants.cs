@@ -91,5 +91,6 @@ namespace BingoScorer
 		public const string pratikShrivastav = "Pratik Shrivastav";
 		public const string siddhantTanpure = "Siddhant Tanpure";
 		public const string lutzRoeder = "Lutz Roeder";
+		public const string juanDiegoHerrera = "Juan Diego Herrera";
 	}
 }

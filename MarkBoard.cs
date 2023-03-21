@@ -29,6 +29,7 @@ namespace BingoScorer
 			});
 
 			TallyItems(e.Q4_ExercisesRegularly, new string[]{
+				rachelKang, ezHart, geraldVersluis, davidOrtinau,
 			});
 
 			TallyItems(e.Q5_FirstJob, new string[]{
@@ -45,9 +46,11 @@ namespace BingoScorer
 			});
 
 			TallyItems(e.Q9_FavoriteRecipe, new string[]{
+				geraldVersluis,
 			});
 
 			TallyItems(e.Q10_NonCSDegree, new string[]{
+				rachelKang, davidOrtinau,
 			});
 
 			// Kunyi's Categories
@@ -58,6 +61,7 @@ namespace BingoScorer
 			});
 
 			TallyItems(e.Q13_TeamsEmojis, new string[]{
+				rachelKang, geraldVersluis,
 			});
 
 			TallyItems(e.Q14_OldestItem, new string[]{
@@ -68,15 +72,18 @@ namespace BingoScorer
 
 			// Matthew's Categories
 			TallyItems(e.Q16_WorkshopTeacher, new string[]{
+				geraldVersluis, maddyMontaquilaLeger, rachelKang,
 			});
 
 			TallyItems(e.Q17_UselessTalen, new string[]{
+				geraldVersluis, juanDiegoHerrera,
 			});
 
 			TallyItems(e.Q18_TVFamous, new string[]{
 			});
 
 			TallyItems(e.Q19_FavoriteSpot, new string[]{
+				rachelKang,
 			});
 
 			TallyItems(e.Q20_CPRCertified, new string[]{
@@ -87,9 +94,11 @@ namespace BingoScorer
 			});
 
 			TallyItems(e.Q22_GuiltyPleasure, new string[]{
+				geraldVersluis,
 			});
 
 			TallyItems(e.Q23_PetPictures, new string[]{
+				rachelKang, donnieGoodson, geraldVersluis
 			});
 
 			TallyItems(e.Q24_SomethingYouMade, new string[]{
